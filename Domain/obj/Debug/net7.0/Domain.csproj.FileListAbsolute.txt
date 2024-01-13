@@ -1,0 +1,68 @@
+C:\Users\w\Desktop\Monitor\Domain\bin\Debug\net7.0\Domain.deps.json
+C:\Users\w\Desktop\Monitor\Domain\bin\Debug\net7.0\Domain.dll
+C:\Users\w\Desktop\Monitor\Domain\bin\Debug\net7.0\Domain.pdb
+C:\Users\w\Desktop\Monitor\Domain\bin\Debug\net7.0\FrameWork.dll
+C:\Users\w\Desktop\Monitor\Domain\bin\Debug\net7.0\Logger.Serilog.dll
+C:\Users\w\Desktop\Monitor\Domain\bin\Debug\net7.0\FrameWork.pdb
+C:\Users\w\Desktop\Monitor\Domain\bin\Debug\net7.0\Logger.Serilog.pdb
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.CopyComplete
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.dll
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\refint\Domain.dll
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.pdb
+C:\Users\w\Desktop\Monitor\Domain\obj\Debug\net7.0\ref\Domain.dll
+D:\Sina\squire Project\Monitor\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\Sina\squire Project\Monitor\Domain\bin\Debug\net7.0\Domain.dll
+D:\Sina\squire Project\Monitor\Domain\bin\Debug\net7.0\Domain.pdb
+D:\Sina\squire Project\Monitor\Domain\bin\Debug\net7.0\FrameWork.dll
+D:\Sina\squire Project\Monitor\Domain\bin\Debug\net7.0\Logger.Serilog.dll
+D:\Sina\squire Project\Monitor\Domain\bin\Debug\net7.0\FrameWork.pdb
+D:\Sina\squire Project\Monitor\Domain\bin\Debug\net7.0\Logger.Serilog.pdb
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.CopyComplete
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\Domain.dll
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\Domain.pdb
+D:\Sina\squire Project\Monitor\Domain\obj\Debug\net7.0\ref\Domain.dll
+C:\Users\johny\Desktop\Monitor\Domain\bin\Debug\net7.0\Domain.deps.json
+C:\Users\johny\Desktop\Monitor\Domain\bin\Debug\net7.0\Domain.dll
+C:\Users\johny\Desktop\Monitor\Domain\bin\Debug\net7.0\Domain.pdb
+C:\Users\johny\Desktop\Monitor\Domain\bin\Debug\net7.0\FrameWork.dll
+C:\Users\johny\Desktop\Monitor\Domain\bin\Debug\net7.0\Logger.Serilog.dll
+C:\Users\johny\Desktop\Monitor\Domain\bin\Debug\net7.0\FrameWork.pdb
+C:\Users\johny\Desktop\Monitor\Domain\bin\Debug\net7.0\Logger.Serilog.pdb
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.CopyComplete
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.dll
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\refint\Domain.dll
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\Domain.pdb
+C:\Users\johny\Desktop\Monitor\Domain\obj\Debug\net7.0\ref\Domain.dll
+D:\Desktop\Projects\Monitor\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\Desktop\Projects\Monitor\Domain\bin\Debug\net7.0\Domain.dll
+D:\Desktop\Projects\Monitor\Domain\bin\Debug\net7.0\Domain.pdb
+D:\Desktop\Projects\Monitor\Domain\bin\Debug\net7.0\FrameWork.dll
+D:\Desktop\Projects\Monitor\Domain\bin\Debug\net7.0\Logger.Serilog.dll
+D:\Desktop\Projects\Monitor\Domain\bin\Debug\net7.0\FrameWork.pdb
+D:\Desktop\Projects\Monitor\Domain\bin\Debug\net7.0\Logger.Serilog.pdb
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\Domain.csproj.CopyComplete
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\Domain.dll
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\Domain.pdb
+D:\Desktop\Projects\Monitor\Domain\obj\Debug\net7.0\ref\Domain.dll

@@ -1,0 +1,60 @@
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.deps.json
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.dll
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.pdb
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\FrameWork.dll
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\FrameWork.pdb
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.AssemblyReference.cache
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.AssemblyInfoInputs.cache
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.AssemblyInfo.cs
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.CoreCompileInputs.cache
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.CopyComplete
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.dll
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\refint\Logger.Serilog.dll
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.pdb
+C:\Users\w\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\ref\Logger.Serilog.dll
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.deps.json
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.dll
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.pdb
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\FrameWork.dll
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\FrameWork.pdb
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.AssemblyReference.cache
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.GeneratedMSBuildEditorConfig.editorconfig
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.AssemblyInfoInputs.cache
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.AssemblyInfo.cs
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.CoreCompileInputs.cache
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.CopyComplete
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.dll
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\refint\Logger.Serilog.dll
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.pdb
+D:\Sina\squire Project\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\ref\Logger.Serilog.dll
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.deps.json
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.dll
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.pdb
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\FrameWork.dll
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\FrameWork.pdb
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.AssemblyReference.cache
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.AssemblyInfoInputs.cache
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.AssemblyInfo.cs
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.CoreCompileInputs.cache
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.CopyComplete
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.dll
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\refint\Logger.Serilog.dll
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.pdb
+C:\Users\johny\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\ref\Logger.Serilog.dll
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.deps.json
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.dll
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\Logger.Serilog.pdb
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\FrameWork.dll
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\bin\Debug\net7.0\FrameWork.pdb
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.AssemblyReference.cache
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.AssemblyInfoInputs.cache
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.AssemblyInfo.cs
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.CoreCompileInputs.cache
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.csproj.CopyComplete
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.dll
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\refint\Logger.Serilog.dll
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\Logger.Serilog.pdb
+D:\Desktop\Projects\Monitor\FrameWork\Logger.Serilog\obj\Debug\net7.0\ref\Logger.Serilog.dll
