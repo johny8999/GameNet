@@ -36,7 +36,6 @@ namespace Application.Services
                 input.CheckModelState(_serviceProvider);
 
                 #endregion Validations
-
                 ResponseDto response;
                 var orderOperation = await _repository.GetEntitiesByQuery(true)
                     .OrderByDescending(a=>a.ID).Skip(0).Take(input.Take)
