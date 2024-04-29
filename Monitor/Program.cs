@@ -4,6 +4,7 @@ using Infra.IOC;
 using Logger.Serilog;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Template.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,8 +54,8 @@ CorsServiceCollectionExtensions.AddCors(builder.Services, options =>
 
 //AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
-  builder.Host.UseSeriLog_SqlServer();
-  builder.Host.UseSeriLog_Files();
+builder.Host.UseSeriLog_SqlServer();
+builder.Host.UseSeriLog_Files();
 
 var app = builder.Build();
 
@@ -67,9 +68,13 @@ CorsMiddlewareExtensions.UseCors(app, "EnableCors");
 //if (app.Environment.IsDevelopment())
 //{
 app.UseSwagger();
-app.UseSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", $"{StaticData.Version}"); });
+app.UseSwaggerUI(options =>
+{
+  options.SwaggerEndpoint("/swagger/v1/swagger.json",
+    $"{StaticData.Version}");
+});
 //}
-
+app.UseJwtAuthentication();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

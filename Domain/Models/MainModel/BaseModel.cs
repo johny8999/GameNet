@@ -1,19 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 
 namespace Domain.Models.MainModel
 {
-    public class BaseModel
-    {
-        [Key]
-        [Column(Order = 0)]
-        public int ID { get; set; }
-
-
-        public bool? Local_Flag { get; set; }
-        public bool? SAP_Flag { get; set; }
-        // public DateTime CreatedAt { get; set; }
-        // public DateTime UpdatedAt { get; set; }
-        // public bool IsDeleted { get; set; }
-    }
+  public class BaseModel
+  {
+    public long ID { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
+    public bool IsDeleted { get; set; }
+  }
 }

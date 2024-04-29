@@ -1,0 +1,17 @@
+C:\Users\14014566\Desktop\Monitor\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Users\14014566\Desktop\Monitor\Domain\bin\Debug\net8.0\Domain.dll
+C:\Users\14014566\Desktop\Monitor\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Users\14014566\Desktop\Monitor\Domain\bin\Debug\net8.0\FrameWork.dll
+C:\Users\14014566\Desktop\Monitor\Domain\bin\Debug\net8.0\Logger.Serilog.dll
+C:\Users\14014566\Desktop\Monitor\Domain\bin\Debug\net8.0\FrameWork.pdb
+C:\Users\14014566\Desktop\Monitor\Domain\bin\Debug\net8.0\Logger.Serilog.pdb
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\Domain.csproj.Up2Date
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\Domain.dll
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Users\14014566\Desktop\Monitor\Domain\obj\Debug\net8.0\ref\Domain.dll

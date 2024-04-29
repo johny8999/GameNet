@@ -52,8 +52,11 @@ public static class StaticData
         LogServer = "tcp://192.168.0.164:32700/";
         //All_PostgreSqlCon = "Server=192.168.0.247;Port=5432;Database=IOT_DB;User Id= postgres;Password=Abc@1234;";
         AllSqlCon =
-          "Server=.;Database=DataAcquisitionOEE;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
-        //  "Server=sa;Database=DataAcquisitionOEE;User Id=sa;Password=12345678";
+          "Server=.;Database=GameNet;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
+
+
+
+
 
         Redis = "192.168.0.245:6379";
         LogServerName = "IOTReminderServer";
@@ -68,7 +71,7 @@ public static class StaticData
         LogServer = "tcp://10.10.2.48:32700/";
         AllSqlCon =
           // "Server=sa;Database=DataAcquisitionOEE;User Id=sa;Password=12345678";
-          "Server=DESKTOP-8852LTQ;Database=DataAcquisitionOEE;Trusted_Connection=False;TrustServerCertificate=True;Encrypt=False;";
+          "Server=DESKTOP-8852LTQ;Database=GameNet;Trusted_Connection=False;TrustServerCertificate=True;Encrypt=False;";
         Redis = "10.10.2.29:6379";
         LogServerName = "IOTReminderServer";
         RedisTransactionUrl = "http://10.10.2.29:6380/api/";
@@ -82,7 +85,7 @@ public static class StaticData
         LogServer = "tcp://192.168.1.78:32700/";
         AllSqlCon =
           // "Server=sa;Database=DataAcquisitionOEE;User Id=sa;Password=12345678";
-          "Server=DESKTOP-8852LTQ;Database=DataAcquisitionOEE;Trusted_Connection=False;TrustServerCertificate=True;Encrypt=False;";
+          "Server=DESKTOP-8852LTQ;Database=GameNet;Trusted_Connection=False;TrustServerCertificate=True;Encrypt=False;";
         Redis = "192.168.1.166:6379";
         LogServerName = "IOTReminderServer";
         RedisTransactionUrl = "http://192.168.1.166:6380/api/";

@@ -1,5 +1,6 @@
-﻿using Domain.Models;
-using Domain.Models.OperationTables;
+﻿using Domain;
+using Domain.Models;
+using Domain.Models.MainModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Data.Context
@@ -10,21 +11,15 @@ namespace Infra.Data.Context
     {
     }
 
-
-    public DbSet<Order_Operation> Order_Operation { get; set; }
-    public DbSet<Pallet_Operation> Pallet_Operation { get; set; }
-    public DbSet<Shift_Operation> Shift_Operation { get; set; }
-    public DbSet<User_Operation> User_Operation { get; set; }
-    public DbSet<WorkCenter_Operation> WorkCenter_Operation { get; set; }
-    public DbSet<Production> Production { get; set; }
-
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //   base.OnConfiguring(optionsBuilder);
-    // }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-    }
+    public DbSet<City> City { get; set; }
+    public DbSet<Customer> Customer { get; set; }
+    public DbSet<CustomerAccounting> CustomerAccounting { get; set; }
+    public DbSet<Debt> Debt { get; set; }
+    public DbSet<Entity> Entity { get; set; }
+    public DbSet<EntityGameNet> EntityGameNet { get; set; }
+    public DbSet<GameNet> GameNet { get; set; }
+    public DbSet<GameNetSeller> GameNetSeller { get; set; }
+    public DbSet<Provinces> Provinces { get; set; }
+    public DbSet<Seller> Seller { get; set; }
   }
 }
