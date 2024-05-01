@@ -3,35 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\14014566\\Desktop\\Monitor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D701C067-F967-4FC6-838F-32D1E3763483}|Monitor\\Monitor.csproj|c:\\users\\14014566\\desktop\\monitor\\monitor\\monitor.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{D701C067-F967-4FC6-838F-32D1E3763483}|Monitor\\Monitor.csproj|solutionrelative:monitor\\monitor.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E6BD886B-E082-4BF7-8B0F-238389A9EB7B}|Infra.IOC\\Infra.IOC.csproj|c:\\users\\14014566\\desktop\\monitor\\infra.ioc\\infra.ioc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{E6BD886B-E082-4BF7-8B0F-238389A9EB7B}|Infra.IOC\\Infra.IOC.csproj|solutionrelative:infra.ioc\\infra.ioc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|c:\\users\\14014566\\desktop\\monitor\\application\\authentication\\identityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|solutionrelative:application\\authentication\\identityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{335165C7-97EA-40AF-92AF-69E77CC46CAE}|Infra.Data\\Infra.Data.csproj|c:\\users\\14014566\\desktop\\monitor\\infra.data\\infra.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{335165C7-97EA-40AF-92AF-69E77CC46CAE}|Infra.Data\\Infra.Data.csproj|solutionrelative:infra.data\\infra.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58B89933-DE50-499A-8967-DBBA45C53730}|FrameWork\\Logger.Serilog\\Logger.Serilog.csproj|c:\\users\\14014566\\desktop\\monitor\\framework\\logger.serilog\\logger.serilog.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{58B89933-DE50-499A-8967-DBBA45C53730}|FrameWork\\Logger.Serilog\\Logger.Serilog.csproj|solutionrelative:framework\\logger.serilog\\logger.serilog.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|c:\\users\\14014566\\desktop\\monitor\\application\\authentication\\configidentityjwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|solutionrelative:application\\authentication\\configidentityjwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B45C89E-6727-455B-B9E8-023797B993B5}|FrameWork\\FrameWork\\FrameWork.csproj|c:\\users\\14014566\\desktop\\monitor\\framework\\framework\\framework.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{0B45C89E-6727-455B-B9E8-023797B993B5}|FrameWork\\FrameWork\\FrameWork.csproj|solutionrelative:framework\\framework\\framework.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8D2FFC24-1B12-43CB-AD7C-1541E5F89872}|Domain\\Domain.csproj|c:\\users\\14014566\\desktop\\monitor\\domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8D2FFC24-1B12-43CB-AD7C-1541E5F89872}|Domain\\Domain.csproj|solutionrelative:domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|c:\\users\\14014566\\desktop\\monitor\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|solutionrelative:application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|c:\\users\\14014566\\desktop\\monitor\\application\\authentication\\customerrordescriber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|solutionrelative:application\\authentication\\customerrordescriber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,110 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Microsoft.PackageDependencyResolution.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "ViewState": "AQIAAPgAAAAAAAAAAAAtwAkBAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-04-29T10:58:11.358Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Monitor.csproj",
-              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Monitor\\Monitor.csproj",
-              "RelativeDocumentMoniker": "Monitor\\Monitor.csproj",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Monitor\\Monitor.csproj",
-              "RelativeToolTip": "Monitor\\Monitor.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-29T10:57:57.801Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Infra.IOC.csproj",
-              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.IOC\\Infra.IOC.csproj",
-              "RelativeDocumentMoniker": "Infra.IOC\\Infra.IOC.csproj",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.IOC\\Infra.IOC.csproj",
-              "RelativeToolTip": "Infra.IOC\\Infra.IOC.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-29T10:57:52.337Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Infra.Data.csproj",
+              "Title": "Infra.Data",
               "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Infra.Data.csproj",
               "RelativeDocumentMoniker": "Infra.Data\\Infra.Data.csproj",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Infra.Data.csproj*",
-              "RelativeToolTip": "Infra.Data\\Infra.Data.csproj*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAZAAAA",
+              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Infra.Data.csproj",
+              "RelativeToolTip": "Infra.Data\\Infra.Data.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-29T10:57:48.385Z",
+              "WhenOpened": "2024-04-30T07:35:29.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Logger.Serilog.csproj",
-              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\FrameWork\\Logger.Serilog\\Logger.Serilog.csproj",
-              "RelativeDocumentMoniker": "FrameWork\\Logger.Serilog\\Logger.Serilog.csproj",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\FrameWork\\Logger.Serilog\\Logger.Serilog.csproj",
-              "RelativeToolTip": "FrameWork\\Logger.Serilog\\Logger.Serilog.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-29T10:57:44.71Z",
-              "EditorCaption": ""
+              "Title": "CustomErrorDescriber.cs",
+              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Authentication\\CustomErrorDescriber.cs",
+              "RelativeDocumentMoniker": "Application\\Authentication\\CustomErrorDescriber.cs",
+              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Authentication\\CustomErrorDescriber.cs",
+              "RelativeToolTip": "Application\\Authentication\\CustomErrorDescriber.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T07:31:33.73Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrameWork.csproj",
-              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\FrameWork\\FrameWork\\FrameWork.csproj",
-              "RelativeDocumentMoniker": "FrameWork\\FrameWork\\FrameWork.csproj",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\FrameWork\\FrameWork\\FrameWork.csproj",
-              "RelativeToolTip": "FrameWork\\FrameWork\\FrameWork.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-29T10:57:41.438Z",
-              "EditorCaption": ""
+              "DocumentIndex": 2,
+              "Title": "ConfigIdentityJWT.cs",
+              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Authentication\\ConfigIdentityJWT.cs",
+              "RelativeDocumentMoniker": "Application\\Authentication\\ConfigIdentityJWT.cs",
+              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Authentication\\ConfigIdentityJWT.cs",
+              "RelativeToolTip": "Application\\Authentication\\ConfigIdentityJWT.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T07:31:29.695Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Domain.csproj",
-              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Domain\\Domain.csproj",
-              "RelativeDocumentMoniker": "Domain\\Domain.csproj",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Domain\\Domain.csproj*",
-              "RelativeToolTip": "Domain\\Domain.csproj*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-29T10:57:37.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Application.csproj",
-              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Application.csproj",
-              "RelativeDocumentMoniker": "Application\\Application.csproj",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Application.csproj*",
-              "RelativeToolTip": "Application\\Application.csproj*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-29T10:57:19.878Z",
+              "DocumentIndex": 0,
+              "Title": "IdentityConfig.cs",
+              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Authentication\\IdentityConfig.cs",
+              "RelativeDocumentMoniker": "Application\\Authentication\\IdentityConfig.cs",
+              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Authentication\\IdentityConfig.cs",
+              "RelativeToolTip": "Application\\Authentication\\IdentityConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T07:31:24.688Z",
               "EditorCaption": ""
             }
           ]

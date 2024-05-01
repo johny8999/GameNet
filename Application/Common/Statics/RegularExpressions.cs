@@ -2,13 +2,13 @@
 
 public static class RegularExpressions
 {
-    public const string InvalidCharacters = "^[^\"'!@#%\\^&\\*()_\\-\\+=~`\\[\\]\\{\\}\\|;:<>\\?\\/,\\\\]{1,}$";
-    public const string InvalidAddress = "^[^\"'!@#%\\^&\\*()_\\-\\+=~`\\[\\]\\{\\}\\|;:<>\\?\\/,\\\\]{1,}$";
-    public const string InvalidNumber = "^[0-9]{1,}$";
-    public const string InvalidSerial = "^[0-9]{18}$";
-    public const string InvalidDeviceModelSerial = "^[0-9]{8}$";
-    public const string InvalidMac = "^(?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}|(?:[0-9a-fA-F]{2}-){5}[0-9a-fA-F]{2}|(?:[0-9a-fA-F]{2}){5}[0-9a-fA-F]{2}$";
-    public const string InvalidGuuid = "^((?!00000000-0000-0000-0000-000000000000).)*$";
+    public const string Characters = "^[^\"'!@#%\\^&\\*()_\\-\\+=~`\\[\\]\\{\\}\\|;:<>\\?\\/,\\\\]{1,}$";
+    public const string Address = "^[^\"'!@#%\\^&\\*()_\\-\\+=~`\\[\\]\\{\\}\\|;:<>\\?\\/,\\\\]{1,}$";
+    public const string Number = "^[0-9]{1,}$";
+    public const string Serial = "^[0-9]{18}$";
+    public const string DeviceModelSerial = "^[0-9]{8}$";
+    public const string Mac = "^(?:[0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}|(?:[0-9a-fA-F]{2}-){5}[0-9a-fA-F]{2}|(?:[0-9a-fA-F]{2}){5}[0-9a-fA-F]{2}$";
+    public const string Guuid = "^((?!00000000-0000-0000-0000-000000000000).)*$";
 
 
 

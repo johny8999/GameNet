@@ -6,7 +6,7 @@ namespace Application.Common.Statics;
 
 public static class StaticData
 {
-  public static JsonSerializerOptions cacheJsonOptions = new JsonSerializerOptions
+  public static JsonSerializerOptions CacheJsonOptions = new JsonSerializerOptions
   {
     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     WriteIndented = true
@@ -18,7 +18,7 @@ public static class StaticData
   {
     try
     {
-      return JsonSerializer.Serialize(data, cacheJsonOptions);
+      return JsonSerializer.Serialize(data, CacheJsonOptions);
     }
     catch (Exception)
     {
@@ -98,7 +98,7 @@ public static class StaticData
     }
   }
 
-  public static ResponseDto GenerateResponse(HttpStatusCode statusCode, string message, object? result = null,
+  public static ResponseDto? GenerateResponse(HttpStatusCode statusCode, string message, object? result = null,
     int total = 0, int page = 1, int perPage = 10)
     => new()
     {

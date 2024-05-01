@@ -1,10 +1,12 @@
+using System.Globalization;
+using Application.Authentication;
+using Application.Authentication.Identity;
 using Application.Common.Statics;
 using Infra.Data.Context;
 using Infra.IOC;
 using Logger.Serilog;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Template.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options => { options.SwaggerGeneratorOptions.DescribeAllParametersInCamelCase = true; });
 
+builder.Services.AddJwtAuthentication();
+builder.Services.AddCustomIdentity()
+  .AddErrorDescriber<CustomErrorDescriber>();
 
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(opt =>
 {
@@ -77,8 +82,15 @@ app.UseSwaggerUI(options =>
 app.UseJwtAuthentication();
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
 app.MapControllers();
+app.Use(async (context, next) =>
+{
+  var cultureInfo = new CultureInfo("fa-IR");
+  cultureInfo.NumberFormat.CurrencyDecimalSeparator = ".";
+  cultureInfo.NumberFormat.NegativeSign = "-";
 
+  CultureInfo.CurrentCulture = cultureInfo;
+
+  await next();
+});
 app.Run();

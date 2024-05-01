@@ -7,7 +7,7 @@ using Domain.Models.MainModel;
 
 namespace Domain.Interfaces
 {
-    public interface IRepository<TEntity> : IDisposable where TEntity : BaseModel
+    public interface IRepository<TEntity>
     {
         Task<bool> AddEntity(TEntity entity);
         Task<bool> AddRangeEntity(List<TEntity> entities, Guid? id = null);

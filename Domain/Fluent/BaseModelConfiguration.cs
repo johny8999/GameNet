@@ -8,7 +8,7 @@ public class BaseModelConfiguration : IEntityTypeConfiguration<BaseModel>
 {
   public void Configure(EntityTypeBuilder<BaseModel> builder)
   {
-    builder.HasKey(a => a.ID);
-    builder.Property(a => a.ID).ValueGeneratedOnAdd();
+    builder.HasKey(a => a.Id);
+    builder.Property(a => a.Id).ValueGeneratedOnAdd();
   }
 }

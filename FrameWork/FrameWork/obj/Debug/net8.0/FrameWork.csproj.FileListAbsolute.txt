@@ -10,3 +10,4 @@ C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\refint\FrameWork.dll
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.pdb
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\ref\FrameWork.dll
+C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.sourcelink.json

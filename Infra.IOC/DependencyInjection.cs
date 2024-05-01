@@ -1,4 +1,6 @@
-﻿using Domain.Interfaces;
+﻿using Application.Interfaces;
+using Application.Services;
+using Domain.Interfaces;
 using FrameWork.Services;
 using Infra.Data.Repositories;
 using Logger.Serilog;
@@ -15,6 +17,7 @@ public static class DependencyInjection
 
     services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
     services.AddSingleton<ISerilogger, Serilogger>();
+    services.AddSingleton<IAuthService, AuthService>();
     services.AddHttpClient();
   }
 }

@@ -1,6 +1,6 @@
 using Domain.Models.MainModel;
 
-namespace Domain;
+namespace Domain.Models;
 
 public class Provinces : BaseModel
 {

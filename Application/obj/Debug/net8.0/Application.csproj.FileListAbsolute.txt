@@ -17,3 +17,6 @@ C:\Users\14014566\Desktop\Monitor\Application\obj\Debug\net8.0\Application.dll
 C:\Users\14014566\Desktop\Monitor\Application\obj\Debug\net8.0\refint\Application.dll
 C:\Users\14014566\Desktop\Monitor\Application\obj\Debug\net8.0\Application.pdb
 C:\Users\14014566\Desktop\Monitor\Application\obj\Debug\net8.0\ref\Application.dll
+C:\Users\14014566\Desktop\Monitor\Application\obj\Debug\net8.0\Application.sourcelink.json
+C:\Users\14014566\Desktop\Monitor\Application\bin\Debug\net8.0\Infra.Data.dll
+C:\Users\14014566\Desktop\Monitor\Application\bin\Debug\net8.0\Infra.Data.pdb

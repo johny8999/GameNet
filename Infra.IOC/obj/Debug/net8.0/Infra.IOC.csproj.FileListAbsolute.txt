@@ -21,3 +21,4 @@ C:\Users\14014566\Desktop\Monitor\Infra.IOC\obj\Debug\net8.0\Infra.IOC.dll
 C:\Users\14014566\Desktop\Monitor\Infra.IOC\obj\Debug\net8.0\refint\Infra.IOC.dll
 C:\Users\14014566\Desktop\Monitor\Infra.IOC\obj\Debug\net8.0\Infra.IOC.pdb
 C:\Users\14014566\Desktop\Monitor\Infra.IOC\obj\Debug\net8.0\ref\Infra.IOC.dll
+C:\Users\14014566\Desktop\Monitor\Infra.IOC\obj\Debug\net8.0\Infra.IOC.sourcelink.json

@@ -10,7 +10,7 @@ namespace FrameWork.DataAnnotations.String
                 ErrorMessage = "وارد کردن '{0}' الزامی است.";
         }
 
-        protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
+        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             if (value is null)
                 return new ValidationResult(GetMessage(validationContext));
@@ -18,9 +18,9 @@ namespace FrameWork.DataAnnotations.String
                 return ValidationResult.Success;
         }
 
-        public string GetMessage(ValidationContext validationContext)
+        public string? GetMessage(ValidationContext validationContext)
         {
-            if (ErrorMessage.Contains("{0}"))
+            if (ErrorMessage != null && ErrorMessage.Contains("{0}"))
                 ErrorMessage = ErrorMessage.Replace("{0}", validationContext.DisplayName);
 
             return ErrorMessage;

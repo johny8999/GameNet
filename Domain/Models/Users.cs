@@ -1,4 +1,5 @@
 using System;
+using Domain.Models.MainModel;
 using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Models;
