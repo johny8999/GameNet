@@ -3,11 +3,11 @@ using FrameWork.DataAnnotations.String;
 
 namespace Application.Dto.Users.Request;
 
-public sealed class LogInDto
+public sealed class LoginByEmailPasswordDto
 {
   [Display(Name = "شناسه")]
   [RequiredString]
-  public long UserId { get; set; }
+  public string Email { get; set; }
   [Display(Name = "ؤمز عبور")]
   [RequiredString]
   public long Password { get; set; }

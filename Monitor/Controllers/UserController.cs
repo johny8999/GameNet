@@ -1,4 +1,5 @@
 using Application.Dto;
+using Application.Dto.Users.Request;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +15,16 @@ public class UserController : ControllerBase
   }
 
   [HttpPost("[action]")]
-  public async Task<IActionResult> GetShiftOperationByInputCount(RegisterDTo input)
+  public async Task<IActionResult> RegisterAsync([FromBody] RegisterDTo input)
   {
     var result = await _service.RegisterAsync(input);
+    return StatusCode(result.StatusCode, result);
+  }
+
+  [HttpPost("[action]")]
+  public async Task<IActionResult> LoginByEmailPasswordAsync([FromBody] LoginByEmailPasswordDto input)
+  {
+    var result = await _service.LoginByEmailPasswordAsync(input);
     return StatusCode(result.StatusCode, result);
   }
 }

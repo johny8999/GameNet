@@ -6,6 +6,6 @@ namespace Application.Interfaces;
 
 public interface IUserApplication
 {
-  Task<ResponseDto> LogIn(LogInDto input);
+  Task<ResponseDto> LoginByEmailPasswordAsync(LoginByEmailPasswordDto input);
   Task<ResponseDto> RegisterAsync(RegisterDTo input);
 }

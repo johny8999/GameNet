@@ -1,4 +1,6 @@
 using System.Net;
+using Application.Authentication.JWT;
+using Application.Authentication.JWT.Dto;
 using Application.Common.Responses;
 using Application.Common.Statics;
 using Application.Dto;
@@ -14,21 +16,27 @@ public class UserApplication : IUserApplication
 {
   private readonly IUserRepository _userRepository;
   private readonly IResponse _response;
+  private readonly IJwtBuilder _jwtBuilder;
 
   public UserApplication(
     IUserRepository userRepository,
-    IResponse response)
+    IResponse response, IJwtBuilder jwtBuilder)
   {
     _userRepository = userRepository;
 
     _response = response;
+    _jwtBuilder = jwtBuilder;
   }
 
-  public Task<ResponseDto> LogIn(LogInDto input)
+  public async Task<ResponseDto> LoginByEmailPasswordAsync(LoginByEmailPasswordDto input)
   {
     try
     {
-      return default;
+      var jwtBuilder = await _jwtBuilder.CreateTokenAsync(new CreateTokenDto
+      {
+        UserEmail = input.Email
+      });
+      return jwtBuilder;
     }
     catch (Exception e)
     {
@@ -56,6 +64,7 @@ public class UserApplication : IUserApplication
         FirstName = input.FirstName,
         LastName = input.LastName,
         Date = DateTime.Now,
+        PasswordHash = input.Password,
         UserName = input.Email //.Split('@')[0] + new Random().Next(1000, 9999),
       };
       await _userRepository.AddAsync(user);

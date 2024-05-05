@@ -2,10 +2,16 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
+using Application.Authentication.JWT.Dto;
+using Application.Common.Responses;
 using Application.Common.Statics;
+using Application.Dto.Role.Request;
 using Application.Dto.Users.Response;
 using Application.Interfaces;
+using FrameWork.Exceptions;
 using FrameWork.ExMethods;
+using Infra.Data.Repositories.Users;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
@@ -14,34 +20,57 @@ namespace Application.Authentication.JWT;
 public class JwtBuilder : IJwtBuilder
 {
   private readonly ILogger _logger;
-  private readonly IUserApplication _userApplication;
+  private readonly IUserRepository _userRepository;
+  private readonly IResponse _response;
+  private readonly IRoleApplication _roleApplication;
 
-  public JwtBuilder(IUserApplication userApplication, ILogger logger)
+  public JwtBuilder(ILogger logger, IUserRepository userRepository, IResponse response,
+    IRoleApplication roleApplication)
   {
-    _userApplication = userApplication;
     _logger = logger;
+    _userRepository = userRepository;
+    _response = response;
+    _roleApplication = roleApplication;
   }
 
-  public async Task<ResponseDto?> CreateTokenAsync(long UserId)
+  public async Task<ResponseDto?> CreateTokenAsync(CreateTokenDto input)
   {
     try
     {
       #region Get UserData
 
-      OutGetAllUserDetails userDetails = null;
+      OutGetAllUserDetails userDetails = new();
       {
-        var result = await _userApplication.LogIn(new()
+        var user = await _userRepository.Get.Where(a => a.Email == input.UserEmail).SingleOrDefaultAsync();
+        if (user is null)
         {
-          UserId = UserId
-        });
-        if (result.StatusCode != 200)
-          return default;
+          var result = _response.GenerateResponse(HttpStatusCode.OK, ReturnMessages.SuccessfulAdd("User"));
+          return result;
+        }
 
-        //TODO:back to correct code
-        userDetails = default;
+        userDetails.Id = user.Id.ToString();
+        userDetails.UserName = user.UserName;
+        userDetails.Email = user.Email;
+        userDetails.FirstName = user.FirstName;
+        userDetails.LastName = user.LastName;
       }
 
       #endregion
+
+      #region GetRole
+
+      List<string> _Roles = null;
+      {
+        _Roles = await _roleApplication.GetRoleNameByUserIdAsync(new GetRoleNameByUserIdDto()
+        {
+          UserId = userDetails.Id
+        });
+
+        if (_Roles == null)
+          throw new ArgumentInvalidException("UserId is invalid");
+      }
+
+      #endregion GetRole
 
       #region Generate Claim
 
@@ -50,16 +79,16 @@ public class JwtBuilder : IJwtBuilder
         lstClaims = new()
         {
           new Claim("Id", userDetails.Id.ToString()),
-          new Claim("SellerId", userDetails.SellerId.ToString()),
           new Claim(ClaimTypes.Name, userDetails.UserName),
           new Claim(ClaimTypes.Email, userDetails.Email ?? ""),
-          new Claim(ClaimTypes.MobilePhone, userDetails.PhoneNumber ?? ""),
-          new Claim("FullName", (userDetails.FirstName ?? "") + " " + (userDetails.LastName ?? "")),
-          new Claim("IsActive", userDetails.IsActive.ToString()),
-          new Claim("IsProfileComplete", userDetails.IsProfileComplete.ToString()),
+          //new Claim(ClaimTypes.MobilePhone, userDetails.PhoneNumber ?? ""),
+          new Claim("FirstName", (userDetails.FirstName ?? "")),
+          new Claim("LastName", (userDetails.LastName ?? "")),
+          // new Claim("IsActive", userDetails.IsActive.ToString()),
+          // new Claim("IsProfileComplete", userDetails.IsProfileComplete.ToString()),
         };
 
-        lstClaims.AddRange(userDetails.Roles.Select(val => new Claim(ClaimTypes.Role, val)));
+        lstClaims.AddRange(_Roles.Select(val => new Claim(ClaimTypes.Role, val)));
       }
 
       #endregion
