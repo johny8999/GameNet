@@ -1,5 +1,4 @@
 using System.Globalization;
-using Application.Authentication;
 using Application.Authentication.Identity;
 using Application.Common.Statics;
 using Infra.Data.Context;
@@ -42,7 +41,7 @@ builder.Services.AddControllers().ConfigureApiBehaviorOptions(opt =>
 
 StaticData.Config(builder.Configuration);
 
-builder.Services.AddDbContext<ApplicationContext>(opt =>
+builder.Services.AddDbContext<MainContext>(opt =>
   opt.UseSqlServer(StaticData.AllSqlCon));
 
 CorsServiceCollectionExtensions.AddCors(builder.Services, options =>

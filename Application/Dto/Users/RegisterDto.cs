@@ -1,10 +1,6 @@
-using System;
-using Domain.Models.MainModel;
-using Microsoft.AspNetCore.Identity;
+namespace Application.Dto.Users;
 
-namespace Domain.Models;
-
-public class Users: IdentityUser<long>
+public sealed class RegisterDto
 {
   public string FirstName { get; set; }
   public string LastName { get; set; }

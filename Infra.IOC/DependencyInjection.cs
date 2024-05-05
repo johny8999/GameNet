@@ -1,9 +1,7 @@
-﻿using Application.Interfaces;
+using Application.Common.Responses;
+using Application.Interfaces;
 using Application.Services;
-using Domain.Interfaces;
-using FrameWork.Services;
-using Infra.Data.Repositories;
-using Logger.Serilog;
+using Infra.Data.Repositories.Users;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,11 +11,14 @@ public static class DependencyInjection
 {
   public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
   {
-    // services.AddScoped<IOrderOperationService, OrderOperationService>();
-
-    services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-    services.AddSingleton<ISerilogger, Serilogger>();
-    services.AddSingleton<IAuthService, AuthService>();
     services.AddHttpClient();
+  //  services.AddDbContext<MainContext>(opt => opt.UseSqlServer(StaticData.AllSqlCon));
+
+    services.AddScoped<IUserApplication, UserApplication>();
+    services.AddScoped<IUserRepository, UserRepository>();
+
+
+    //services.AddSingleton<ISerilogger, Serilogger>();
+    services.AddSingleton<IResponse, Response>();
   }
 }

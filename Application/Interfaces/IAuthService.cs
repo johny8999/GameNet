@@ -5,5 +5,5 @@ namespace Application.Interfaces;
 
 public interface IAuthService
 {
-  Task<ResponseDto?> GetTokensync(GetGetTokensynctRequestDto input);
+  Task<ResponseDto?> Register(RegisterDTo input);
 }

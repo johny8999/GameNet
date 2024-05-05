@@ -2,8 +2,8 @@ using Domain.Models.MainModel;
 
 namespace Domain.Models;
 
-public class EntityGameNet : BaseModel
+public class TblGameNetCustomer:BaseModel
 {
+  public long CustomerId { get; set; }
   public long GameNetId { get; set; }
-  public long EntityId { get; set; }
 }

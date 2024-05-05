@@ -8,9 +8,9 @@ C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\Logg
 C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\Logger.Serilog.AssemblyInfoInputs.cache
 C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\Logger.Serilog.AssemblyInfo.cs
 C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\Logger.Serilog.csproj.CoreCompileInputs.cache
+C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\Logger.Serilog.sourcelink.json
 C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\Logger.S.3A519F72.Up2Date
 C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\Logger.Serilog.dll
 C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\refint\Logger.Serilog.dll
 C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\Logger.Serilog.pdb
 C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\ref\Logger.Serilog.dll
-C:\Users\14014566\Desktop\Monitor\FrameWork\Logger.Serilog\obj\Debug\net8.0\Logger.Serilog.sourcelink.json

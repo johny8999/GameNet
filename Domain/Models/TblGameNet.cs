@@ -2,8 +2,8 @@ using Domain.Models.MainModel;
 
 namespace Domain.Models;
 
-public class City : BaseModel
+public class TblGameNet:BaseModel
 {
   public string Name { get; set; }
-  public long ProvincesId { get; set; }
+  public long CityId { get; set; }
 }

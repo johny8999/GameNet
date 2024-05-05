@@ -13,10 +13,10 @@ C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.Generat
 C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.AssemblyInfoInputs.cache
 C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.AssemblyInfo.cs
 C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.sourcelink.json
 C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.csproj.Up2Date
 C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.dll
 C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\refint\Infra.Data.dll
 C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.pdb
 C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.genruntimeconfig.cache
 C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\ref\Infra.Data.dll
-C:\Users\14014566\Desktop\Monitor\Infra.Data\obj\Debug\net8.0\Infra.Data.sourcelink.json

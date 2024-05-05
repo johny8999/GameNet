@@ -30,7 +30,7 @@ public class JwtBuilder : IJwtBuilder
 
       OutGetAllUserDetails userDetails = null;
       {
-        var result = await _userApplication.GetAllUserDetailsAsync(new()
+        var result = await _userApplication.LogIn(new()
         {
           UserId = UserId
         });

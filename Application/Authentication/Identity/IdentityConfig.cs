@@ -9,7 +9,7 @@ public static class IdentityConfig
 {
   public static IdentityBuilder AddCustomIdentity(this IServiceCollection services)
   {
-    return services.AddIdentityApiEndpoints<Users>(opt =>
+    return services.AddIdentityApiEndpoints<TblUsers>(opt =>
       {
         opt.SignIn.RequireConfirmedAccount = false;
         opt.SignIn.RequireConfirmedEmail = false;
@@ -29,7 +29,7 @@ public static class IdentityConfig
         opt.Lockout.DefaultLockoutTimeSpan = new TimeSpan(0, 15, 0);
         opt.Lockout.MaxFailedAccessAttempts = 3;
       })
-      .AddEntityFrameworkStores<ApplicationContext>()
+      .AddEntityFrameworkStores<MainContext>()
       .AddDefaultTokenProviders();
   }
 }
