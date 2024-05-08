@@ -23,8 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
+    <Folder Include="Common\Seed\" />
     <Folder Include="Dto\Role\Response\" />
+    <Folder Include="Seed\Role\" />
+    <Folder Include="Seed\Main\" />
+    <Folder Include="Seed\UserRole\" />
   </ItemGroup>
 
 </Project>

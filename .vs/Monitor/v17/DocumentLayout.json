@@ -3,18 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\14014566\\Desktop\\Monitor\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|c:\\users\\14014566\\desktop\\monitor\\application\\services\\roleapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|solutionrelative:application\\services\\roleapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|c:\\users\\14014566\\desktop\\monitor\\application\\services\\userapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|solutionrelative:application\\services\\userapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E6BD886B-E082-4BF7-8B0F-238389A9EB7B}|Infra.IOC\\Infra.IOC.csproj|c:\\users\\14014566\\desktop\\monitor\\infra.ioc\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E6BD886B-E082-4BF7-8B0F-238389A9EB7B}|Infra.IOC\\Infra.IOC.csproj|solutionrelative:infra.ioc\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|c:\\users\\14014566\\desktop\\monitor\\application\\authentication\\jwt\\jwtbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C49E30B5-B3B1-4469-8776-EE23564B725A}|Application\\Application.csproj|solutionrelative:application\\authentication\\jwt\\jwtbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 256,
+      "VerticalTabListWidth": 237,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -23,27 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserApplication.cs",
-              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Services\\UserApplication.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\UserApplication.cs",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Services\\UserApplication.cs",
-              "RelativeToolTip": "Application\\Services\\UserApplication.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA1AAAA",
+              "Title": "RoleApplication.cs",
+              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Services\\RoleApplication.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\RoleApplication.cs",
+              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Services\\RoleApplication.cs",
+              "RelativeToolTip": "Application\\Services\\RoleApplication.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-05T06:42:30.529Z",
+              "WhenOpened": "2024-05-06T08:48:50.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "JWTBuilder.cs",
+              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Authentication\\JWT\\JWTBuilder.cs",
+              "RelativeDocumentMoniker": "Application\\Authentication\\JWT\\JWTBuilder.cs",
+              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Authentication\\JWT\\JWTBuilder.cs",
+              "RelativeToolTip": "Application\\Authentication\\JWT\\JWTBuilder.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAYwEEAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T08:48:38.762Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.IOC\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "Infra.IOC\\DependencyInjection.cs",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.IOC\\DependencyInjection.cs*",
-              "RelativeToolTip": "Infra.IOC\\DependencyInjection.cs*",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB8AAAADAAAA",
+              "Title": "UserApplication.cs",
+              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Services\\UserApplication.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\UserApplication.cs",
+              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Application\\Services\\UserApplication.cs",
+              "RelativeToolTip": "Application\\Services\\UserApplication.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-05T06:41:39.085Z",
+              "WhenOpened": "2024-05-05T06:42:30.529Z",
               "EditorCaption": ""
             }
           ]

@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using Application.Authentication.JWT.Dto;
 using Application.Common.Responses;
@@ -41,10 +42,12 @@ public class JwtBuilder : IJwtBuilder
 
       OutGetAllUserDetails userDetails = new();
       {
-        var user = await _userRepository.Get.Where(a => a.Email == input.UserEmail).SingleOrDefaultAsync();
+        var user = await _userRepository.Get.Where(a => a.Email == input.UserEmail && a.PasswordHash == input.Password)
+          .SingleOrDefaultAsync();
         if (user is null)
         {
-          var result = _response.GenerateResponse(HttpStatusCode.OK, ReturnMessages.SuccessfulAdd("User"));
+          var result = _response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.GeneralPrint("User name or password is incorrect"));
           return result;
         }
 
@@ -117,7 +120,7 @@ public class JwtBuilder : IJwtBuilder
       string generatedToken = "";
       {
         var securityToken = new JwtSecurityTokenHandler().CreateToken(tokenDescriptor);
-        generatedToken = "Bearer " + new JwtSecurityTokenHandler().WriteToken(securityToken);
+        generatedToken = new JwtSecurityTokenHandler().WriteToken(securityToken);
       }
 
       #endregion
@@ -141,6 +144,46 @@ public class JwtBuilder : IJwtBuilder
       var response = StaticData.GenerateResponse(HttpStatusCode.OK, ReturnMessages.Faile(),
         ex.Message, 1);
       return response;
+    }
+  }
+
+  public string GenerateRefreshToken()
+  {
+    var randomNumber = new byte[32];
+    using (var rng = RandomNumberGenerator.Create())
+    {
+      rng.GetBytes(randomNumber);
+      return Convert.ToBase64String(randomNumber).TrimEnd('=').Replace("+", "").Replace("/", "");
+      ;
+    }
+  }
+
+  public ClaimsPrincipal GetPrincipalOfExpirationToken(string token)
+  {
+    try
+    {
+      var tokenValidationParameters = new TokenValidationParameters
+      {
+        ValidateAudience = false, //you might want to validate the audience and issuer depending on your use case
+        ValidateIssuer = false,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthConst.SecretCode)),
+        ValidateLifetime = false //here we are saying that we don't care about the token's expiration date
+      };
+
+      var tokenHandler = new JwtSecurityTokenHandler();
+      SecurityToken securityToken;
+      var principal = tokenHandler.ValidateToken(token.AesDecrypt(AuthConst.SecretKey), tokenValidationParameters,
+        out securityToken);
+      var jwtSecurityToken = securityToken as JwtSecurityToken;
+      if (jwtSecurityToken == null)
+        throw new SecurityTokenException("Invalid token");
+      return principal;
+    }
+    catch (Exception e)
+    {
+      Console.WriteLine(e);
+      throw;
     }
   }
 }

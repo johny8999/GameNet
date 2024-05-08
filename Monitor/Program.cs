@@ -1,11 +1,14 @@
 using System.Globalization;
 using Application.Authentication.Identity;
 using Application.Common.Statics;
+using Application.Seed.Main;
 using Infra.Data.Context;
 using Infra.IOC;
 using Logger.Serilog;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
+#region AddService
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,14 +16,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.RegisterServices(builder.Configuration);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddSwaggerGen(options => { options.SwaggerGeneratorOptions.DescribeAllParametersInCamelCase = true; });
-
 builder.Services.AddJwtAuthentication();
-builder.Services.AddCustomIdentity()
-  .AddErrorDescriber<CustomErrorDescriber>();
+builder.Services.AddCustomIdentity().AddErrorDescriber<CustomErrorDescriber>();
 
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(opt =>
 {
@@ -37,12 +36,8 @@ builder.Services.AddControllers().ConfigureApiBehaviorOptions(opt =>
     return new BadRequestObjectResult(responseObj);
   };
 });
-
-
 StaticData.Config(builder.Configuration);
-
-builder.Services.AddDbContext<MainContext>(opt =>
-  opt.UseSqlServer(StaticData.AllSqlCon));
+builder.Services.AddDbContext<MainContext>(options => { options.UseSqlServer(StaticData.AllSqlCon); });
 
 CorsServiceCollectionExtensions.AddCors(builder.Services, options =>
 {
@@ -63,9 +58,11 @@ builder.Host.UseSeriLog_Files();
 
 var app = builder.Build();
 
+#endregion AddService
+
+#region Config
+
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-
-
 //app.UseMiddleware<UsernameMiddleware>();
 CorsMiddlewareExtensions.UseCors(app, "EnableCors");
 // Configure the HTTP request pipeline.
@@ -92,4 +89,28 @@ app.Use(async (context, next) =>
 
   await next();
 });
+
+#endregion Config
+
+#region ConfigureSeed
+
+{
+  using var serviceScope = app.Services.CreateScope();
+  var services = serviceScope.ServiceProvider;
+  try
+  {
+    var seedMain = services.GetRequiredService<ISeedMain>();
+
+    seedMain.RunAsync().Wait();
+    //var q= _SeedMain.RunAsync().Result;   //for return result
+  }
+  catch (Exception ex)
+  {
+    var _Logger = services.GetRequiredService<ILogger>();
+    // _Logger.Fatal(ex);
+  }
+}
+
+#endregion ConfigureSeed
+
 app.Run();

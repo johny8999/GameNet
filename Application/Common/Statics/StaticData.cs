@@ -53,11 +53,6 @@ public static class StaticData
         //All_PostgreSqlCon = "Server=192.168.0.247;Port=5432;Database=IOT_DB;User Id= postgres;Password=Abc@1234;";
         AllSqlCon =
           "Server=.;Database=GameNet;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
-
-
-
-
-
         Redis = "192.168.0.245:6379";
         LogServerName = "IOTReminderServer";
         RedisTransactionUrl = "http://192.168.0.231:6380/api/";

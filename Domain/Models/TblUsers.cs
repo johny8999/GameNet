@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Models;
@@ -12,4 +13,7 @@ public class TblUsers: IdentityUser<Guid>
   public DateTime Date { get; set; }
   public string SmsHashCode { get; set; }
   public DateTime? LastTrySentSms { get; set; }
+
+
+  public virtual ICollection<TblCustomer> TblCustomer { get; set; }
 }

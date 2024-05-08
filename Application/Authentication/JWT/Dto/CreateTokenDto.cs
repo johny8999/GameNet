@@ -8,4 +8,6 @@ public sealed class CreateTokenDto
   [RequiredString]
   [EmailAddress]
   public string UserEmail { get; set; }
+
+  public string Password { get; set; }
 }

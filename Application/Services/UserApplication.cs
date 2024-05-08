@@ -5,6 +5,7 @@ using Application.Common.Responses;
 using Application.Common.Statics;
 using Application.Dto;
 using Application.Dto.Users.Request;
+using Application.Dto.Users.Response;
 using Application.Interfaces;
 using Domain.Models;
 using Infra.Data.Repositories.Users;
@@ -34,9 +35,19 @@ public class UserApplication : IUserApplication
     {
       var jwtBuilder = await _jwtBuilder.CreateTokenAsync(new CreateTokenDto
       {
-        UserEmail = input.Email
+        UserEmail = input.Email,
+        Password = input.Password.ToString()
       });
-      return jwtBuilder;
+      if (jwtBuilder != null && jwtBuilder.StatusCode is not 200)
+      {
+        return jwtBuilder;
+      }
+
+      //return jwtBuilder;
+      _jwtBuilder.GetPrincipalOfExpirationToken(jwtBuilder.Result.ToString());
+      return _response.GenerateResponse(HttpStatusCode.OK
+        , ReturnMessages.GeneralPrint("Login was successful.")
+        , new OutLoginByEmail() { RefreshToken = _jwtBuilder.GenerateRefreshToken(), Token = jwtBuilder.Result.ToString() });
     }
     catch (Exception e)
     {

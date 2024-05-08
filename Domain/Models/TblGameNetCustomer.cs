@@ -1,9 +1,10 @@
+using System;
 using Domain.Models.MainModel;
 
 namespace Domain.Models;
 
 public class TblGameNetCustomer:BaseModel
 {
-  public long CustomerId { get; set; }
-  public long GameNetId { get; set; }
+  public Guid CustomerId { get; set; }
+  public Guid GameNetId { get; set; }
 }

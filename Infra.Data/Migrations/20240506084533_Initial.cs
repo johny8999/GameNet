@@ -283,10 +283,7 @@ namespace Infra.Data.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    tblUsersId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    tblRolesId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -298,21 +295,11 @@ namespace Infra.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetRoles_tblRolesId",
-                        column: x => x.tblRolesId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_tblUsersId",
-                        column: x => x.tblUsersId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -361,16 +348,6 @@ namespace Infra.Data.Migrations
                 name: "IX_AspNetUserRoles_RoleId",
                 table: "AspNetUserRoles",
                 column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_tblRolesId",
-                table: "AspNetUserRoles",
-                column: "tblRolesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_tblUsersId",
-                table: "AspNetUserRoles",
-                column: "tblUsersId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",

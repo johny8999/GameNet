@@ -13,14 +13,8 @@ public class MainContext : IdentityDbContext<TblUsers, TblRole, Guid, IdentityUs
   {
   }
 
-  public MainContext()
-  {
-  }
 
-  protected override void OnModelCreating(ModelBuilder builder)
-  {
-    base.OnModelCreating(builder);
-  }
+
 
   public DbSet<TblUsers> Users { get; set; }
   public DbSet<TblCity> City { get; set; }

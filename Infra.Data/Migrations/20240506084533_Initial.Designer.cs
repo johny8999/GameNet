@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Data.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20240501114821_Initial")]
+    [Migration("20240506084533_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -295,22 +295,9 @@ namespace Infra.Data.Migrations
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("tblRolesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("tblUsersId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
-
-                    b.HasIndex("tblRolesId");
-
-                    b.HasIndex("tblUsersId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
@@ -526,18 +513,6 @@ namespace Infra.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Domain.Models.TblRole", "tblRoles")
-                        .WithMany()
-                        .HasForeignKey("tblRolesId");
-
-                    b.HasOne("Domain.Models.TblUsers", "tblUsers")
-                        .WithMany()
-                        .HasForeignKey("tblUsersId");
-
-                    b.Navigation("tblRoles");
-
-                    b.Navigation("tblUsers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
