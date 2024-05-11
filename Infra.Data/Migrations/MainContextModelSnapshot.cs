@@ -62,9 +62,6 @@ namespace Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("CustomerId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<decimal>("DailyPurchase")
                         .HasColumnType("decimal(18,2)");
 
@@ -74,10 +71,23 @@ namespace Infra.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<Guid?>("TblDebtId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("TblUserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TblDebtId");
+
+                    b.HasIndex("TblUserId");
 
                     b.ToTable("CustomerAccounting");
                 });
@@ -91,8 +101,8 @@ namespace Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("CustomerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime>("DateDebt")
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("DebtAmount")
                         .HasColumnType("decimal(18,2)");
@@ -111,6 +121,9 @@ namespace Infra.Data.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -170,32 +183,6 @@ namespace Infra.Data.Migrations
                     b.ToTable("GameNet");
                 });
 
-            modelBuilder.Entity("Domain.Models.TblGameNetCustomer", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CustomerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("GameNetId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("GameNetSeller");
-                });
-
             modelBuilder.Entity("Domain.Models.TblRole", b =>
                 {
                     b.Property<Guid>("Id")
@@ -222,42 +209,6 @@ namespace Infra.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Models.TblRoleGameNet", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("GameNetID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid>("RoleID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("TblGameNetId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("TblRoleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TblGameNetId");
-
-                    b.HasIndex("TblRoleId");
-
-                    b.ToTable("TblRoleGameNet");
                 });
 
             modelBuilder.Entity("Domain.Models.TblSubEntity", b =>
@@ -331,6 +282,42 @@ namespace Infra.Data.Migrations
                     b.HasIndex("TblSubEntityId");
 
                     b.ToTable("EntityGameNet");
+                });
+
+            modelBuilder.Entity("Domain.Models.TblUserGameNet", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("GameNetID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("TblGameNetId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("TblUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TblGameNetId");
+
+                    b.HasIndex("TblUserId");
+
+                    b.ToTable("TblUserGameNet");
                 });
 
             modelBuilder.Entity("Domain.Models.TblUserRole", b =>
@@ -546,34 +533,34 @@ namespace Infra.Data.Migrations
                     b.Navigation("Tblprovinces");
                 });
 
+            modelBuilder.Entity("Domain.Models.TblCustomerAccounting", b =>
+                {
+                    b.HasOne("Domain.Models.TblDebt", "TblDebt")
+                        .WithMany("TblCustomerAccountings")
+                        .HasForeignKey("TblDebtId");
+
+                    b.HasOne("Domain.Models.TblUsers", "TblUser")
+                        .WithMany("TblCustomerAccountings")
+                        .HasForeignKey("TblUserId");
+
+                    b.Navigation("TblDebt");
+
+                    b.Navigation("TblUser");
+                });
+
             modelBuilder.Entity("Domain.Models.TblDebt", b =>
                 {
                     b.HasOne("Domain.Models.TblSubEntity", "TblSubEntity")
-                        .WithMany()
+                        .WithMany("TblDebts")
                         .HasForeignKey("TblSubEntityId");
 
                     b.HasOne("Domain.Models.TblUsers", "TblUser")
-                        .WithMany()
+                        .WithMany("TblDebts")
                         .HasForeignKey("TblUserId");
 
                     b.Navigation("TblSubEntity");
 
                     b.Navigation("TblUser");
-                });
-
-            modelBuilder.Entity("Domain.Models.TblRoleGameNet", b =>
-                {
-                    b.HasOne("Domain.Models.TblGameNet", "TblGameNet")
-                        .WithMany("TblRoleGameNet")
-                        .HasForeignKey("TblGameNetId");
-
-                    b.HasOne("Domain.Models.TblRole", "TblRole")
-                        .WithMany("TblRoleGameNet")
-                        .HasForeignKey("TblRoleId");
-
-                    b.Navigation("TblGameNet");
-
-                    b.Navigation("TblRole");
                 });
 
             modelBuilder.Entity("Domain.Models.TblSubEntity", b =>
@@ -598,6 +585,21 @@ namespace Infra.Data.Migrations
                     b.Navigation("TblGameNet");
 
                     b.Navigation("TblSubEntity");
+                });
+
+            modelBuilder.Entity("Domain.Models.TblUserGameNet", b =>
+                {
+                    b.HasOne("Domain.Models.TblGameNet", "TblGameNet")
+                        .WithMany("TblUserGameNet")
+                        .HasForeignKey("TblGameNetId");
+
+                    b.HasOne("Domain.Models.TblUsers", "TblUser")
+                        .WithMany("TblUserGameNets")
+                        .HasForeignKey("TblUserId");
+
+                    b.Navigation("TblGameNet");
+
+                    b.Navigation("TblUser");
                 });
 
             modelBuilder.Entity("Domain.Models.TblUserRole", b =>
@@ -651,6 +653,11 @@ namespace Infra.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Domain.Models.TblDebt", b =>
+                {
+                    b.Navigation("TblCustomerAccountings");
+                });
+
             modelBuilder.Entity("Domain.Models.TblEntity", b =>
                 {
                     b.Navigation("TblSubEntities");
@@ -658,19 +665,25 @@ namespace Infra.Data.Migrations
 
             modelBuilder.Entity("Domain.Models.TblGameNet", b =>
                 {
-                    b.Navigation("TblRoleGameNet");
-
                     b.Navigation("TblSubEntityGameNets");
-                });
 
-            modelBuilder.Entity("Domain.Models.TblRole", b =>
-                {
-                    b.Navigation("TblRoleGameNet");
+                    b.Navigation("TblUserGameNet");
                 });
 
             modelBuilder.Entity("Domain.Models.TblSubEntity", b =>
                 {
+                    b.Navigation("TblDebts");
+
                     b.Navigation("TblSubEntityGameNets");
+                });
+
+            modelBuilder.Entity("Domain.Models.TblUsers", b =>
+                {
+                    b.Navigation("TblCustomerAccountings");
+
+                    b.Navigation("TblDebts");
+
+                    b.Navigation("TblUserGameNets");
                 });
 
             modelBuilder.Entity("Domain.Models.Tblprovinces", b =>

@@ -6,5 +6,4 @@ namespace Domain.Models;
 
 public class TblRole:IdentityRole<Guid>
 {
-  public virtual ICollection<TblUserGameNet> TblRoleGameNet { get; set; }
 }
