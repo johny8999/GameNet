@@ -33,9 +33,6 @@ namespace Infra.Data.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NationalCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    SmsHashCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastTrySentSms = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -58,45 +55,13 @@ namespace Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "City",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProvincesId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_City", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Customer",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<long>(type: "bigint", nullable: false),
-                    GameNetId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Customer", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "CustomerAccounting",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DailyPurchase = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    CustomerId = table.Column<long>(type: "bigint", nullable: false),
-                    DebtId = table.Column<long>(type: "bigint", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DebtId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
@@ -104,23 +69,6 @@ namespace Infra.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CustomerAccounting", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Debt",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CustomerId = table.Column<long>(type: "bigint", nullable: false),
-                    DebtAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    EntityId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Debt", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -139,28 +87,12 @@ namespace Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EntityGameNet",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GameNetId = table.Column<long>(type: "bigint", nullable: false),
-                    EntityId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EntityGameNet", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "GameNet",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CityId = table.Column<long>(type: "bigint", nullable: false),
+                    CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
@@ -175,8 +107,8 @@ namespace Infra.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CustomerId = table.Column<long>(type: "bigint", nullable: false),
-                    GameNetId = table.Column<long>(type: "bigint", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GameNetId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
@@ -199,21 +131,6 @@ namespace Infra.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Provinces", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Seller",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Seller", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -322,6 +239,137 @@ namespace Infra.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "TblSubEntity",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TblEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TblSubEntity", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TblSubEntity_Entity_TblEntityId",
+                        column: x => x.TblEntityId,
+                        principalTable: "Entity",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TblRoleGameNet",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoleID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GameNetID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TblRoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    TblGameNetId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TblRoleGameNet", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TblRoleGameNet_AspNetRoles_TblRoleId",
+                        column: x => x.TblRoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_TblRoleGameNet_GameNet_TblGameNetId",
+                        column: x => x.TblGameNetId,
+                        principalTable: "GameNet",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "City",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProvincesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TblprovincesId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_City", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_City_Provinces_TblprovincesId",
+                        column: x => x.TblprovincesId,
+                        principalTable: "Provinces",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Debt",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DebtAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    SubEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TblUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    TblSubEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Debt", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Debt_AspNetUsers_TblUserId",
+                        column: x => x.TblUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Debt_TblSubEntity_TblSubEntityId",
+                        column: x => x.TblSubEntityId,
+                        principalTable: "TblSubEntity",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EntityGameNet",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GameNetId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SubEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    DatePrice = table.Column<DateOnly>(type: "date", nullable: false),
+                    TblGameNetId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    TblSubEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EntityGameNet", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_EntityGameNet_GameNet_TblGameNetId",
+                        column: x => x.TblGameNetId,
+                        principalTable: "GameNet",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_EntityGameNet_TblSubEntity_TblSubEntityId",
+                        column: x => x.TblSubEntityId,
+                        principalTable: "TblSubEntity",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -360,6 +408,46 @@ namespace Infra.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_City_TblprovincesId",
+                table: "City",
+                column: "TblprovincesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Debt_TblSubEntityId",
+                table: "Debt",
+                column: "TblSubEntityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Debt_TblUserId",
+                table: "Debt",
+                column: "TblUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EntityGameNet_TblGameNetId",
+                table: "EntityGameNet",
+                column: "TblGameNetId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EntityGameNet_TblSubEntityId",
+                table: "EntityGameNet",
+                column: "TblSubEntityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TblRoleGameNet_TblGameNetId",
+                table: "TblRoleGameNet",
+                column: "TblGameNetId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TblRoleGameNet_TblRoleId",
+                table: "TblRoleGameNet",
+                column: "TblRoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TblSubEntity_TblEntityId",
+                table: "TblSubEntity",
+                column: "TblEntityId");
         }
 
         /// <inheritdoc />
@@ -384,37 +472,37 @@ namespace Infra.Data.Migrations
                 name: "City");
 
             migrationBuilder.DropTable(
-                name: "Customer");
-
-            migrationBuilder.DropTable(
                 name: "CustomerAccounting");
 
             migrationBuilder.DropTable(
                 name: "Debt");
 
             migrationBuilder.DropTable(
-                name: "Entity");
-
-            migrationBuilder.DropTable(
                 name: "EntityGameNet");
-
-            migrationBuilder.DropTable(
-                name: "GameNet");
 
             migrationBuilder.DropTable(
                 name: "GameNetSeller");
 
             migrationBuilder.DropTable(
+                name: "TblRoleGameNet");
+
+            migrationBuilder.DropTable(
                 name: "Provinces");
 
             migrationBuilder.DropTable(
-                name: "Seller");
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "TblSubEntity");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "GameNet");
+
+            migrationBuilder.DropTable(
+                name: "Entity");
         }
     }
 }

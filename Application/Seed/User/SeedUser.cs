@@ -28,14 +28,12 @@ public class SeedUser : ISeedUser
             Id = "ef23660b-8344-4243-8276-576845a1b262".ToGuid(),
             FirstName = "Admin",
             LastName = "Admin",
-            Date = DateTime.Now,
             Email = "Sinaalipour89@gmail.com",
             PhoneNumber = "09133802351",
             NationalCode = "4610248603",
             UserName = "Sinaalipour89@gmail.com",
             PhoneNumberConfirmed = true,
             EmailConfirmed = true,
-            BirthDate = DateTime.Now
           });
       }
 

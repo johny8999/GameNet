@@ -1,9 +1,7 @@
-using Application.Seed.User;
 using Domain.Models;
 using FrameWork.Exceptions;
 using FrameWork.ExMethods;
 using Infra.Data.Repositories.UserRole;
-using Infra.Data.Repositories.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Seed.UserRole;

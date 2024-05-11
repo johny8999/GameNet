@@ -8,5 +8,5 @@ public class TblCity : BaseModel
   public string Name { get; set; }
   public Guid ProvincesId { get; set; }
 
-  public virtual Tblprovinces Tblprovinces { get; set; }
+  public  Tblprovinces Tblprovinces { get; set; }
 }

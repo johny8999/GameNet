@@ -9,5 +9,7 @@ public sealed class RegisterDTo
   [RequiredString] public string FirstName { get; set; }
   [RequiredString] public string LastName { get; set; }
   [RequiredString] public string Password { get; set; }
+  [RequiredString] public string NationalCode { get; set; }
+
   [RequiredString] [Compare("Password")] public string PasswordConfirm { get; set; }
 }

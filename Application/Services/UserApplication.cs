@@ -74,8 +74,9 @@ public class UserApplication : IUserApplication
         Email = input.Email,
         FirstName = input.FirstName,
         LastName = input.LastName,
-        Date = DateTime.Now,
         PasswordHash = input.Password,
+        NormalizedEmail = input.Email,
+        NationalCode = input.NationalCode,
         UserName = input.Email //.Split('@')[0] + new Random().Next(1000, 9999),
       };
       await _userRepository.AddAsync(user);
