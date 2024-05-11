@@ -23,4 +23,6 @@ public class MainContext : IdentityDbContext<TblUsers, TblRole, Guid, IdentityUs
   public DbSet<TblGameNet> GameNet { get; set; }
   public DbSet<Tblprovinces> Provinces { get; set; }
   public DbSet<TblUserGameNet> TblUserGameNet { get; set; }
+  public DbSet<TblSubEntity> TblSubEntity { get; set; }
+  public DbSet<TblSubEntityGameNet> TblSubEntityGameNet { get; set; }
 }
