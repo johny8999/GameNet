@@ -1,6 +1,10 @@
+using System.Net;
+using Application.Common.Responses;
+using Application.Common.Statics;
 using Application.Dto.Role.Request;
 using Application.Interfaces;
 using FrameWork.ExMethods;
+using FrameWork.Services;
 using Infra.Data.Repositories.Roles;
 using Infra.Data.Repositories.UserRole;
 using Microsoft.EntityFrameworkCore;
@@ -11,11 +15,16 @@ public class RoleApplication : IRoleApplication
 {
   private readonly IUserRoleRepository _userRoleRepository;
   private readonly IRoleRepository _roleRepository;
+  private readonly ISerilogger _serilogger;
+  private readonly IResponse _response;
 
-  public RoleApplication(IUserRoleRepository userRoleRepository, IRoleRepository roleRepository)
+  public RoleApplication(IUserRoleRepository userRoleRepository, IRoleRepository roleRepository, ISerilogger serilogger,
+    IResponse response)
   {
     _userRoleRepository = userRoleRepository;
     _roleRepository = roleRepository;
+    _serilogger = serilogger;
+    _response = response;
   }
 
   public async Task<List<string>> GetRoleNameByUserIdAsync(GetRoleNameByUserIdDto input)
@@ -37,8 +46,8 @@ public class RoleApplication : IRoleApplication
     }
     catch (Exception e)
     {
-      Console.WriteLine(e);
-      throw;
+      _serilogger.Error(e);
+      return new List<string>();
     }
   }
 }

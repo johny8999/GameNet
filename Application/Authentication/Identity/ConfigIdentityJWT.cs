@@ -1,5 +1,6 @@
 using System.Text;
 using Application.Common.Statics;
+using FrameWork.Utility;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;

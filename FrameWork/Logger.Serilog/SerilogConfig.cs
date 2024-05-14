@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using FrameWork.Utility;
+using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
 
@@ -18,13 +19,12 @@ namespace Logger.Serilog
             return new LoggerConfiguration()
                 .Enrich.FromLogContext()
                 .MinimumLevel.Is(logEventLevel)
-                //.WriteTo.MSSqlServer("Data Source=.;Initial Catalog=SerilogDB;Integrated Security=True;", new MSSqlServerSinkOptions
                 .WriteTo.MSSqlServer(
-                  "Server=.;Database=Logs;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False",
+                  StaticData.LogServerName,
                     new MSSqlServerSinkOptions
                     {
                         AutoCreateSqlTable = true,
-                        TableName = "log",
+                        TableName = "GameNetLog",
                         BatchPeriod = new TimeSpan(0, 0, 1)
                     },
                     columnOptions: columnOpt);

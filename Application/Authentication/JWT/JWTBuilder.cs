@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Runtime.Caching;
+using FrameWork.Utility;
 
 namespace Application.Authentication.JWT;
 
@@ -141,14 +142,14 @@ public class JwtBuilder : IJwtBuilder
       {
         SaveToken(new SaveTokenDto
         {
-          UserId =userDetails.Id,
+          UserId = userDetails.Id,
           Token = encryptedToken
         });
       }
 
       #endregion SaveToken
 
-      var response = StaticData.GenerateResponse(HttpStatusCode.OK,
+      var response = _response.GenerateResponse(HttpStatusCode.OK,
         ReturnMessages.SuccessfulGet(),
         new OutCreateTokenAsync
         {
@@ -161,7 +162,7 @@ public class JwtBuilder : IJwtBuilder
     catch (Exception ex)
     {
       _logger.Error(ex.Message);
-      var response = StaticData.GenerateResponse(HttpStatusCode.OK, ReturnMessages.Faile(),
+      var response = _response.GenerateResponse(HttpStatusCode.OK, ReturnMessages.Faile(),
         ex.Message, 1);
       return response;
     }

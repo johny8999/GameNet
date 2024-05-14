@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using FrameWork.Exceptions;
 using FrameWork.ExMethods;
+using FrameWork.Services;
 using Infra.Data.Repositories.Roles;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,10 +10,12 @@ namespace Application.Seed.Role;
 public class SeedRoles : ISeedRoles
 {
   private readonly IRoleRepository _roleRepository;
+  private readonly ISerilogger _serilogger;
 
-  public SeedRoles(IRoleRepository roleRepository)
+  public SeedRoles(IRoleRepository roleRepository, ISerilogger serilogger)
   {
     _roleRepository = roleRepository;
+    _serilogger = serilogger;
   }
 
 
@@ -84,13 +87,13 @@ public class SeedRoles : ISeedRoles
     }
     catch (ArgumentInvalidException ex)
     {
-      // _Logger.Debug(ex);
-      return default; //false
+      _serilogger.Debug(ex);
+      return false;
     }
     catch (Exception ex)
     {
-      // _Logger.Error(ex);
-      return default;
+      _serilogger.Error(ex);
+      return false;
     }
   }
 }

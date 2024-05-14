@@ -6,9 +6,12 @@ using Application.Seed.Role;
 using Application.Seed.User;
 using Application.Seed.UserRole;
 using Application.Services;
+using FrameWork.Services;
+using Infra.Data.Repositories.Entity;
 using Infra.Data.Repositories.Roles;
 using Infra.Data.Repositories.UserRole;
 using Infra.Data.Repositories.Users;
+using Logger.Serilog;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +23,7 @@ public static class DependencyInjection
   {
     services.AddHttpClient();
 
+    services.AddSingleton<ISerilogger, Serilogger>();
     services.AddScoped<IUserApplication, UserApplication>();
     services.AddScoped<IUserRepository, UserRepository>();
 
@@ -31,6 +35,10 @@ public static class DependencyInjection
 
     services.AddScoped<IRoleRepository, RoleRepository>();
     services.AddScoped<IRoleRepository, RoleRepository>();
+
+
+    services.AddScoped<ISubEntityApplication, SubEntityApplication>();
+    services.AddScoped<ISubEntityRepository, SubEntityRepository>();
 
     #region Seed
 

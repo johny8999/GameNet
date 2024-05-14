@@ -9,6 +9,8 @@ using Application.Dto.Users.Response;
 using Application.Interfaces;
 using Domain.Models;
 using FrameWork.ExMethods;
+using FrameWork.Services;
+using FrameWork.Utility;
 using Infra.Data.Repositories.Users;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
@@ -20,15 +22,17 @@ public class UserApplication : IUserApplication
   private readonly IUserRepository _userRepository;
   private readonly IResponse _response;
   private readonly IJwtBuilder _jwtBuilder;
+  private readonly ISerilogger _serilogger;
 
   public UserApplication(
     IUserRepository userRepository,
-    IResponse response, IJwtBuilder jwtBuilder)
+    IResponse response, IJwtBuilder jwtBuilder, ISerilogger serilogger)
   {
     _userRepository = userRepository;
 
     _response = response;
     _jwtBuilder = jwtBuilder;
+    _serilogger = serilogger;
   }
 
   public async Task<ResponseDto> LoginByEmailPasswordAsync(LoginByEmailPasswordDto input)
@@ -60,8 +64,9 @@ public class UserApplication : IUserApplication
     }
     catch (Exception e)
     {
-      Console.WriteLine(e);
-      throw;
+      _serilogger.Error(e);
+      return _response.GenerateResponse(HttpStatusCode.InternalServerError,
+        ReturnMessages.Faile());
     }
   }
 
@@ -94,8 +99,9 @@ public class UserApplication : IUserApplication
     }
     catch (Exception e)
     {
-      Console.WriteLine(e);
-      throw;
+      _serilogger.Error(e);
+      return _response.GenerateResponse(HttpStatusCode.InternalServerError,
+        ReturnMessages.Faile());
     }
   }
 
