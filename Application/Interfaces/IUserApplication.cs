@@ -8,4 +8,5 @@ public interface IUserApplication
 {
   Task<ResponseDto> LoginByEmailPasswordAsync(LoginByEmailPasswordDto input);
   Task<ResponseDto> RegisterAsync(RegisterDTo input);
+  Task<string> Decript(string encript);
 }

@@ -1,5 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
+using System.Runtime.Caching;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -15,6 +16,7 @@ using Infra.Data.Repositories.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System.Runtime.Caching;
 
 namespace Application.Authentication.JWT;
 
@@ -134,8 +136,26 @@ public class JwtBuilder : IJwtBuilder
 
       #endregion
 
-      var response = StaticData.GenerateResponse(HttpStatusCode.OK, ReturnMessages.SuccessfulGet(),
-        encryptedToken, 1);
+      #region SaveToken
+
+      {
+        SaveToken(new SaveTokenDto
+        {
+          UserId =userDetails.Id,
+          Token = encryptedToken
+        });
+      }
+
+      #endregion SaveToken
+
+      var response = StaticData.GenerateResponse(HttpStatusCode.OK,
+        ReturnMessages.SuccessfulGet(),
+        new OutCreateTokenAsync
+        {
+          UserId = userDetails.Id,
+          Token = encryptedToken
+        }
+        , 1);
       return response;
     }
     catch (Exception ex)
@@ -179,6 +199,24 @@ public class JwtBuilder : IJwtBuilder
       if (jwtSecurityToken == null)
         throw new SecurityTokenException("Invalid token");
       return principal;
+    }
+    catch (Exception e)
+    {
+      Console.WriteLine(e);
+      throw;
+    }
+  }
+
+  private async Task SaveToken(SaveTokenDto input)
+  {
+    try
+    {
+      ObjectCache memoryCache = MemoryCache.Default;
+      memoryCache.Set(input.UserId, input.Token, new CacheItemPolicy
+      {
+        AbsoluteExpiration = DateTime.Now.AddMinutes(15),
+        Priority = CacheItemPriority.Default,
+      });
     }
     catch (Exception e)
     {

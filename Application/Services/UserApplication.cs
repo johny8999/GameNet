@@ -8,7 +8,9 @@ using Application.Dto.Users.Request;
 using Application.Dto.Users.Response;
 using Application.Interfaces;
 using Domain.Models;
+using FrameWork.ExMethods;
 using Infra.Data.Repositories.Users;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services;
@@ -38,16 +40,23 @@ public class UserApplication : IUserApplication
         UserEmail = input.Email,
         Password = input.Password.ToString()
       });
+
       if (jwtBuilder != null && jwtBuilder.StatusCode is not 200)
       {
         return jwtBuilder;
       }
 
       //return jwtBuilder;
-      _jwtBuilder.GetPrincipalOfExpirationToken(jwtBuilder.Result.ToString());
+      var createTokenResult = jwtBuilder!.Result.Adapt<OutCreateTokenAsync>();
+      _jwtBuilder.GetPrincipalOfExpirationToken(createTokenResult.Token);
+
       return _response.GenerateResponse(HttpStatusCode.OK
         , ReturnMessages.GeneralPrint("Login was successful.")
-        , new OutLoginByEmail() { RefreshToken = _jwtBuilder.GenerateRefreshToken(), Token = jwtBuilder.Result.ToString() });
+        , new OutLoginByEmail()
+        {
+          RefreshToken = _jwtBuilder.GenerateRefreshToken(),
+          Token = createTokenResult.Token
+        });
     }
     catch (Exception e)
     {
@@ -55,7 +64,6 @@ public class UserApplication : IUserApplication
       throw;
     }
   }
-
 
   public async Task<ResponseDto> RegisterAsync(RegisterDTo input)
   {
@@ -80,7 +88,8 @@ public class UserApplication : IUserApplication
         UserName = input.Email //.Split('@')[0] + new Random().Next(1000, 9999),
       };
       await _userRepository.AddAsync(user);
-      var result = _response.GenerateResponse(HttpStatusCode.OK, ReturnMessages.SuccessfulAdd("User"));
+      var result = _response.GenerateResponse(HttpStatusCode.OK,
+        ReturnMessages.SuccessfulAdd("User"));
       return result;
     }
     catch (Exception e)
@@ -88,5 +97,10 @@ public class UserApplication : IUserApplication
       Console.WriteLine(e);
       throw;
     }
+  }
+
+  public async Task<string> Decript(string encript)
+  {
+    return "Bearer " + encript.AesDecrypt(AuthConst.SecretKey);
   }
 }

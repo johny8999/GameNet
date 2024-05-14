@@ -9,4 +9,5 @@ public interface IJwtBuilder
   Task<ResponseDto?> CreateTokenAsync(CreateTokenDto input);
   public string GenerateRefreshToken();
   ClaimsPrincipal GetPrincipalOfExpirationToken(string token);
+
 }

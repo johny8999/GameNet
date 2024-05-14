@@ -32,6 +32,7 @@ public class SeedUser : ISeedUser
             PhoneNumber = "09133802351",
             NationalCode = "4610248603",
             UserName = "Sinaalipour89@gmail.com",
+            PasswordHash = "123456",
             PhoneNumberConfirmed = true,
             EmailConfirmed = true,
           });

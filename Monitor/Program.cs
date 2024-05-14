@@ -5,8 +5,10 @@ using Application.Seed.Main;
 using Infra.Data.Context;
 using Infra.IOC;
 using Logger.Serilog;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 #region AddService
 
@@ -14,6 +16,34 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.RegisterServices(builder.Configuration);
+
+
+builder.Services.AddSwaggerGen(options =>
+{
+  options.AddSecurityDefinition("Bearer",
+    new OpenApiSecurityScheme
+    {
+      Description = "Standard Authorization header using the Bearer scheme (\"bearer {token}\")",
+      In = ParameterLocation.Header,
+      Name = "Authorization",
+      Type = SecuritySchemeType.ApiKey,
+      Scheme = JwtBearerDefaults.AuthenticationScheme
+    });
+  options.AddSecurityRequirement(new OpenApiSecurityRequirement
+  {
+    {
+      new OpenApiSecurityScheme
+      {
+        Name = "Bearer",
+        In = ParameterLocation.Header,
+        Reference = new OpenApiReference { Id = "Bearer", Type = ReferenceType.SecurityScheme }
+      },
+      new List<string>()
+    }
+  });
+  options.OrderActionsBy((apiDesc) => $"{apiDesc.ActionDescriptor.RouteValues["controller"]}");
+ // options.EnableAnnotations();
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
