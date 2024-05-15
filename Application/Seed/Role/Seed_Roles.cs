@@ -23,20 +23,20 @@ public class SeedRoles : ISeedRoles
   {
     try
     {
-      #region AdminPage
+        #region AdminPage
 
-      {
-        if (!await _roleRepository.GetNoTraking.AnyAsync(a => a.ConcurrencyStamp == "AdminPage"))
-          await _roleRepository.AddAsync(new TblRole()
-          {
-            Id = "ef23660b-8344-4243-8276-576845a1b262".ToGuid(),
-            Name = "مدیر سایت",
-            NormalizedName = "AdminPage".ToUpper(),
-            ConcurrencyStamp = "AdminPage"
-          });
-      }
+        {
+          if (!await _roleRepository.GetNoTraking.AnyAsync(a => a.ConcurrencyStamp == "AdminPage"))
+            await _roleRepository.AddAsync(new TblRole()
+            {
+              Id = "ef23660b-8344-4243-8276-576845a1b262".ToGuid(),
+              Name = "مدیر سایت",
+              NormalizedName = "AdminPage".ToUpper(),
+              ConcurrencyStamp = "AdminPage"
+            });
+        }
 
-      #endregion AdminPage
+        #endregion AdminPage
 
       #region Seller
 

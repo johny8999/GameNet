@@ -1,7 +1,7 @@
 using Domain.Models;
 using Infra.Data.Context;
 
-namespace Infra.Data.Repositories.Entity;
+namespace Infra.Data.Repositories.SubEntity;
 
 public class SubEntityRepository : Repository<TblSubEntity>, ISubEntityRepository
 {

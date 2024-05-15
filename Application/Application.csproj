@@ -25,7 +25,6 @@
   <ItemGroup>
     <Folder Include="Common\Seed\" />
     <Folder Include="Dto\Role\Response\" />
-    <Folder Include="Seed\Entity\" />
     <Folder Include="Seed\Role\" />
     <Folder Include="Seed\Main\" />
     <Folder Include="Seed\UserRole\" />

@@ -7,10 +7,9 @@ namespace Domain.Models;
 public class TblSubEntity : BaseModel
 {
   public string Name { get; set; }
-
-  public Guid EntityId { get; set; }
+  public decimal Price { get; set; }
 
   public virtual TblEntity TblEntity { get; set; }
-  public ICollection<TblSubEntityGameNet> TblSubEntityGameNets { get; set; }
   public ICollection<TblDebt> TblDebts { get; set; }
+  public virtual ICollection<TblSubEntityGameNet> TblSubEntityGameNets { get; set; }
 }

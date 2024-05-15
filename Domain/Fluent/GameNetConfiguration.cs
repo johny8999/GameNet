@@ -12,5 +12,6 @@ public class GameNetConfiguration : IEntityTypeConfiguration<TblGameNet>
     builder.Property(a => a.Id).IsRequired().HasMaxLength(150);
     builder.Property(a => a.CityId).IsRequired().HasMaxLength(150);
     builder.Property(a => a.Name).IsRequired().HasMaxLength(50);
+
   }
 }

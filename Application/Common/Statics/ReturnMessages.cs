@@ -26,8 +26,8 @@ public static class ReturnMessages
 
   #region Faile
 
-  public static string Faile() => "Failed.";
-  public static string FailedAdd(string model) => $"Adding {model} Failed.";
+  public static string Faile() => "خطا.";
+  public static string FailedAdd(string model) => $"اضافه شدن {model} Failed.";
   public static string FailedDelete(string model) => $"Deleting {model} Failed.";
   public static string FailedUpdate(string model) => $"Updating {model} Failed.";
   public static string FailedGet(string model) => $"Failed  {model}";

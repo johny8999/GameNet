@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Data.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20240511115159_mg2")]
-    partial class mg2
+    [Migration("20240515091724_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -223,14 +223,14 @@ namespace Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("EntityId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid?>("TblEntityId")
                         .HasColumnType("uniqueidentifier");
@@ -284,7 +284,7 @@ namespace Infra.Data.Migrations
 
                     b.HasIndex("TblSubEntityId");
 
-                    b.ToTable("TblSubEntityGameNet");
+                    b.ToTable("EntityGameNet");
                 });
 
             modelBuilder.Entity("Domain.Models.TblUserGameNet", b =>
@@ -295,9 +295,6 @@ namespace Infra.Data.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid>("GameNetID")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -310,9 +307,6 @@ namespace Infra.Data.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 

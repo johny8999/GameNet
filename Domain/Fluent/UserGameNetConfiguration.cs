@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Domain.Fluent;
 
-public class UserGameNetConfiguration:IEntityTypeConfiguration<TblUserGameNet>
+public class UserGameNetConfiguration : IEntityTypeConfiguration<TblUserGameNet>
 {
   public void Configure(EntityTypeBuilder<TblUserGameNet> builder)
   {
@@ -15,13 +15,13 @@ public class UserGameNetConfiguration:IEntityTypeConfiguration<TblUserGameNet>
     builder.HasOne(a => a.TblGameNet)
       .WithMany(a => a.TblUserGameNet)
       .HasPrincipalKey(a => a.Id)
-      .HasForeignKey(a => a.GameNetID)
+      .HasForeignKey(a => a.TblGameNet.Id)
       .OnDelete(DeleteBehavior.Restrict);
 
     builder.HasOne(a => a.TblUser)
       .WithMany(a => a.TblUserGameNets)
       .HasPrincipalKey(a => a.Id)
-      .HasForeignKey(a => a.UserId)
+      .HasForeignKey(a => a.TblUser.Id)
       .OnDelete(DeleteBehavior.Restrict);
   }
 }

@@ -1,6 +1,7 @@
 using Application.Authentication.JWT;
 using Application.Common.Responses;
 using Application.Interfaces;
+using Application.Seed.Entity;
 using Application.Seed.Main;
 using Application.Seed.Role;
 using Application.Seed.User;
@@ -8,7 +9,9 @@ using Application.Seed.UserRole;
 using Application.Services;
 using FrameWork.Services;
 using Infra.Data.Repositories.Entity;
+using Infra.Data.Repositories.GameNet;
 using Infra.Data.Repositories.Roles;
+using Infra.Data.Repositories.SubEntity;
 using Infra.Data.Repositories.UserRole;
 using Infra.Data.Repositories.Users;
 using Logger.Serilog;
@@ -32,13 +35,17 @@ public static class DependencyInjection
     services.AddScoped<IRoleApplication, RoleApplication>();
     services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 
-
     services.AddScoped<IRoleRepository, RoleRepository>();
     services.AddScoped<IRoleRepository, RoleRepository>();
-
 
     services.AddScoped<ISubEntityApplication, SubEntityApplication>();
     services.AddScoped<ISubEntityRepository, SubEntityRepository>();
+
+    //services.AddScoped<ISubEntityApplication, SubEntityApplication>();
+    services.AddScoped<IGameNetRepository, GameNetRepository>();
+
+    //services.AddScoped<IEntityApplication, EntityApplication>();
+    services.AddScoped<IEntityRepository, EntityRepository>();
 
     #region Seed
 
@@ -46,6 +53,7 @@ public static class DependencyInjection
       services.AddTransient<ISeedRoles, SeedRoles>();
       services.AddTransient<ISeedUser, SeedUser>();
       services.AddTransient<ISeedUserRole, SeedUserRole>();
+      services.AddTransient<ISeedEntity, SeedEntity>();
       services.AddTransient<ISeedMain, SeedMain>();
     }
 
