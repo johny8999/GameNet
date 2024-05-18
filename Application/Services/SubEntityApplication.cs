@@ -34,7 +34,6 @@ public class SubEntityApplication : ISubEntityApplication
     _serilogger = serilogger;
   }
 
-  [HttpPost("[action]")]
   public async Task<ResponseDto> AddSubEntityByGameNetAndEntityAsync(AddSubEntityByGameNetAndEntityDto input)
   {
     try

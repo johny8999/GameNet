@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Common\Seed\" />
+    <Folder Include="Dto\GameNet\Response\" />
     <Folder Include="Dto\Role\Response\" />
     <Folder Include="Seed\Role\" />
     <Folder Include="Seed\Main\" />

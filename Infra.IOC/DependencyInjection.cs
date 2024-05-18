@@ -8,6 +8,7 @@ using Application.Seed.User;
 using Application.Seed.UserRole;
 using Application.Services;
 using FrameWork.Services;
+using Infra.Data.Repositories.City;
 using Infra.Data.Repositories.Entity;
 using Infra.Data.Repositories.GameNet;
 using Infra.Data.Repositories.Roles;
@@ -41,11 +42,14 @@ public static class DependencyInjection
     services.AddScoped<ISubEntityApplication, SubEntityApplication>();
     services.AddScoped<ISubEntityRepository, SubEntityRepository>();
 
-    //services.AddScoped<ISubEntityApplication, SubEntityApplication>();
+    services.AddScoped<IGameNetApplication, GameNetApplication>();
     services.AddScoped<IGameNetRepository, GameNetRepository>();
 
-    //services.AddScoped<IEntityApplication, EntityApplication>();
     services.AddScoped<IEntityRepository, EntityRepository>();
+
+
+    services.AddScoped<ICityRepository, CityRepository>();
+
 
     #region Seed
 

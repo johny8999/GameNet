@@ -10,5 +10,5 @@ public class TblCity : BaseModel
   public Guid ProvincesId { get; set; }
 
   public  Tblprovinces Tblprovinces { get; set; }
- // public virtual ICollection<TblGameNet> TblGameNet { get; set; }
+  public virtual ICollection<TblGameNet> TblGameNet { get; set; }
 }
