@@ -3,11 +3,13 @@ using Application.Common.Responses;
 using Application.Common.Statics;
 using Application.Dto.Entity;
 using Application.Interfaces;
+using Domain.Models;
 using FrameWork.ExMethods;
 using FrameWork.Services;
 using Infra.Data.Repositories.Entity;
 using Infra.Data.Repositories.GameNet;
 using Infra.Data.Repositories.SubEntity;
+using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,26 +39,55 @@ public class SubEntityApplication : ISubEntityApplication
   {
     try
     {
-      var EntityExist = await _entityRepository.GetNoTraking.AnyAsync(a => a.Id == input.EntityId.ToGuid());
-      if (EntityExist is false)
+      #region Entity Exist
+
+      List<TblEntity>? EntityExist = new();
       {
-        return _response.GenerateResponse(HttpStatusCode.BadRequest,
-          ReturnMessages.FailedAdd("گروه وجود ندارد"));
+        EntityExist =
+          await _entityRepository.GetNoTraking.Where(a => a.Id == input.EntityId.ToGuid()).ToListAsync();
+        if (EntityExist.Count <= 0)
+        {
+          return _response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.FailedAdd("گروه وجود ندارد"));
+        }
       }
 
-      var EntityGameNet = await _gameNetRepository.GetNoTraking
-        .AnyAsync(a => a.Id == input.EntityId.ToGuid());
-      if (EntityGameNet is false)
+      #endregion Entity Exist
+
+      #region ExistGameNet
+
+      List<TblGameNet>? ExistGameNet = new();
       {
-        return _response.GenerateResponse(HttpStatusCode.BadRequest,
-          ReturnMessages.FailedAdd("گیم نت وجود ندارد"));
+        ExistGameNet = await _gameNetRepository.GetNoTraking
+          .Where(a => a.Id == input.EntityId.ToGuid()).ToListAsync();
+        if (ExistGameNet.Count <= 0)
+        {
+          return _response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.FailedAdd("گیم نت وجود ندارد"));
+        }
       }
 
-      var SubEntityExist = _repository.GetNoTraking
-        .Where(a => a.TblEntity.Id == input.EntityId.ToGuid()
+      #endregion ExistGameNet
+
+      #region SubEntity Exist
+
+      var SubEntityExist = await _repository.GetNoTraking
+        .Where(a => EntityExist.FirstOrDefault()!.Id == input.EntityId.ToGuid()
                     && a.Name == input.Name
-                    && a.TblSubEntityGameNets.Any(a => a.TblGameNet.Id == input.GameNetId.ToGuid()));
-      return default;
+                    && ExistGameNet.FirstOrDefault()!.Id == input.GameNetId.ToGuid()).AnyAsync();
+      if (SubEntityExist)
+      {
+        return _response.GenerateResponse(HttpStatusCode.BadRequest,
+          ReturnMessages.FailedAdd("این قبلا برای این گیم نت ثبت شده است"));
+      }
+
+      #endregion SubEntity Exist
+
+      var result = input.Adapt<TblSubEntity>();
+
+      _repository.AddAsync(result);
+      return _response.GenerateResponse(HttpStatusCode.OK,
+        ReturnMessages.SuccessfulAdd("User"));
     }
     catch (Exception e)
     {

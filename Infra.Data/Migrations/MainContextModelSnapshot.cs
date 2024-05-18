@@ -113,12 +113,6 @@ namespace Infra.Data.Migrations
                     b.Property<Guid>("SubEntityId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("TblSubEntityId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("TblUserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -127,9 +121,9 @@ namespace Infra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TblSubEntityId");
+                    b.HasIndex("SubEntityId");
 
-                    b.HasIndex("TblUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Debt");
                 });
@@ -220,6 +214,9 @@ namespace Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("EntityId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -229,15 +226,12 @@ namespace Infra.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid?>("TblEntityId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TblEntityId");
+                    b.HasIndex("EntityId");
 
                     b.ToTable("TblSubEntity");
                 });
@@ -266,20 +260,14 @@ namespace Infra.Data.Migrations
                     b.Property<Guid>("SubEntityId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("TblGameNetId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("TblSubEntityId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TblGameNetId");
+                    b.HasIndex("GameNetId");
 
-                    b.HasIndex("TblSubEntityId");
+                    b.HasIndex("SubEntityId");
 
                     b.ToTable("EntityGameNet");
                 });
@@ -293,23 +281,23 @@ namespace Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("GameNetId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<Guid?>("TblGameNetId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("TblUserId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("TblGameNetId");
+                    b.HasIndex("GameNetId");
 
-                    b.HasIndex("TblUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("TblUserGameNet");
                 });
@@ -546,11 +534,15 @@ namespace Infra.Data.Migrations
                 {
                     b.HasOne("Domain.Models.TblSubEntity", "TblSubEntity")
                         .WithMany("TblDebts")
-                        .HasForeignKey("TblSubEntityId");
+                        .HasForeignKey("SubEntityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Domain.Models.TblUsers", "TblUser")
                         .WithMany("TblDebts")
-                        .HasForeignKey("TblUserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TblSubEntity");
 
@@ -561,7 +553,9 @@ namespace Infra.Data.Migrations
                 {
                     b.HasOne("Domain.Models.TblEntity", "TblEntity")
                         .WithMany("TblSubEntities")
-                        .HasForeignKey("TblEntityId");
+                        .HasForeignKey("EntityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TblEntity");
                 });
@@ -570,11 +564,15 @@ namespace Infra.Data.Migrations
                 {
                     b.HasOne("Domain.Models.TblGameNet", "TblGameNet")
                         .WithMany("TblSubEntityGameNets")
-                        .HasForeignKey("TblGameNetId");
+                        .HasForeignKey("GameNetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Domain.Models.TblSubEntity", "TblSubEntity")
                         .WithMany("TblSubEntityGameNets")
-                        .HasForeignKey("TblSubEntityId");
+                        .HasForeignKey("SubEntityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TblGameNet");
 
@@ -585,11 +583,15 @@ namespace Infra.Data.Migrations
                 {
                     b.HasOne("Domain.Models.TblGameNet", "TblGameNet")
                         .WithMany("TblUserGameNet")
-                        .HasForeignKey("TblGameNetId");
+                        .HasForeignKey("GameNetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Domain.Models.TblUsers", "TblUser")
                         .WithMany("TblUserGameNets")
-                        .HasForeignKey("TblUserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TblGameNet");
 

@@ -16,7 +16,7 @@ public class SubEntityConfiguration : IEntityTypeConfiguration<TblSubEntity>
     builder.HasOne(a => a.TblEntity)
       .WithMany(a => a.TblSubEntities)
       .HasPrincipalKey(a => a.Id)
-      .HasForeignKey(a => a.TblEntity.Id)
+      .HasForeignKey(a => a.EntityId)
       .OnDelete(DeleteBehavior.Restrict);
   }
 }

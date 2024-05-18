@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Models.MainModel;
 
 namespace Domain.Models;
@@ -11,7 +12,11 @@ public class TblSubEntityGameNet : BaseModel
   public Guid GameNetId { get; set; }
   public Guid SubEntityId { get; set; }
 
+
+
+  [ForeignKey("GameNetId")]
   public TblGameNet TblGameNet { get; set; }
+    [ForeignKey("SubEntityId")]
   public TblSubEntity TblSubEntity { get; set; }
 
 }

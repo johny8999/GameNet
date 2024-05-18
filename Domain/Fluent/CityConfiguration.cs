@@ -12,10 +12,10 @@ public class CityConfiguration:IEntityTypeConfiguration<TblCity>
     builder.Property(a => a.Id).IsRequired().HasMaxLength(150);
     builder.Property(a => a.Name).IsRequired().HasMaxLength(50);
 
-    builder.HasOne(a => a.Tblprovinces)
-      .WithMany(a => a.TblCities)
-      .HasPrincipalKey(a => a.Id)
-      .HasForeignKey(a => a.Id)
-      .OnDelete(DeleteBehavior.Restrict);
+    // builder.HasOne(a => a.Tblprovinces)
+    //   .WithMany(a => a.TblCities)
+    //   .HasPrincipalKey(a => a.Id)
+    //   .HasForeignKey(a => a.Id)
+    //   .OnDelete(DeleteBehavior.Restrict);
   }
 }

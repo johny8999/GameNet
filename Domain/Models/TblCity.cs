@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Domain.Models.MainModel;
 
 namespace Domain.Models;
@@ -9,4 +10,5 @@ public class TblCity : BaseModel
   public Guid ProvincesId { get; set; }
 
   public  Tblprovinces Tblprovinces { get; set; }
+ // public virtual ICollection<TblGameNet> TblGameNet { get; set; }
 }

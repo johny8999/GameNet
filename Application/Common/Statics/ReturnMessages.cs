@@ -16,7 +16,7 @@ public static class ReturnMessages
 
   #region Successful
 
-  public static string SuccessfulAdd(string model) => $"Added {model} Successfully.";
+  public static string SuccessfulAdd(string model) => $"اضافه شدن {model} موفقیت آمیز.";
   public static string SuccessfulDelete(string model) => $"Deleted {model} Successfully.";
   public static string SuccessfulUpdate(string model) => $"Updated {model} Successfully.";
   public static string SuccessfulGet(string model) => $"Successful {model}";
@@ -27,10 +27,10 @@ public static class ReturnMessages
   #region Faile
 
   public static string Faile() => "خطا.";
-  public static string FailedAdd(string model) => $"اضافه شدن {model} Failed.";
-  public static string FailedDelete(string model) => $"Deleting {model} Failed.";
-  public static string FailedUpdate(string model) => $"Updating {model} Failed.";
-  public static string FailedGet(string model) => $"Failed  {model}";
+  public static string FailedAdd(string model) => $"خطا در اضافه شدن {model}";
+  public static string FailedDelete(string model) => $"پاک شدن {model} خطا در.";
+  public static string FailedUpdate(string model) => $"بروز رسانی {model} خطا در.";
+  public static string FailedGet(string model) => $"خطا در {model}";
 
   #endregion Faile
 

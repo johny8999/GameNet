@@ -10,6 +10,7 @@ public class TblGameNet : BaseModel
   public Guid CityId { get; set; }
 
 
+ // public  TblCity TblCity { get; set; }
   public virtual ICollection<TblUserGameNet> TblUserGameNet { get; set; }
   public virtual ICollection<TblSubEntityGameNet> TblSubEntityGameNets { get; set; }
 }
