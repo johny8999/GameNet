@@ -84,7 +84,7 @@ public class SubEntityApplication : ISubEntityApplication
 
       var result = input.Adapt<TblSubEntity>();
 
-      _repository.AddAsync(result);
+      await _repository.AddAsync(result);
       return _response.GenerateResponse(HttpStatusCode.OK,
         ReturnMessages.SuccessfulAdd("User"));
     }

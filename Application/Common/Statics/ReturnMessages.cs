@@ -44,7 +44,7 @@ public static class ReturnMessages
   public static string ContainsInvalidCharacter(string field) => $"{field} Contains Invalid Character(s).";
   public static string OutOfRange(string field, int min, int max) => $"{field} Must Be Between {min}-{max}.";
   public static string AlreadyExist(string model) => $"This {model} Already Exist!";
-  public static string NotExist(string model) => $"This {model} Not Exist!";
+  public static string NotExist(string model) => $" {model} وجود ندارد";
   public static string NoDeviceModelForSerial() => "Serial Number Doesn't Belong To a Device Model";
 
   public static string BetweenError(short minLenght, short maxLenght, string model) =>
