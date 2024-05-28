@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FrameWork.DataAnnotations.Numbers.All
+namespace FrameWork.DataAnnotations.Numbers
 {
     public class ItsIntegerNumberAttribute : ValidationAttribute
     {

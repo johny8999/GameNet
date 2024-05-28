@@ -16,7 +16,6 @@ using Infra.Data.Repositories.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
-using System.Runtime.Caching;
 using FrameWork.Utility;
 
 namespace Application.Authentication.JWT;
@@ -65,14 +64,14 @@ public class JwtBuilder : IJwtBuilder
 
       #region GetRole
 
-      List<string> _Roles = null;
+      List<string> roles = null;
       {
-        _Roles = await _roleApplication.GetRoleNameByUserIdAsync(new GetRoleNameByUserIdDto()
+        roles = await _roleApplication.GetRoleNameByUserIdAsync(new GetRoleNameByUserIdDto()
         {
           UserId = userDetails.Id
         });
 
-        if (_Roles == null)
+        if (roles == null)
           throw new ArgumentInvalidException("UserId is invalid");
       }
 
@@ -94,7 +93,7 @@ public class JwtBuilder : IJwtBuilder
           // new Claim("IsProfileComplete", userDetails.IsProfileComplete.ToString()),
         };
 
-        lstClaims.AddRange(_Roles.Select(val => new Claim(ClaimTypes.Role, val)));
+        lstClaims.AddRange(roles.Select(val => new Claim(ClaimTypes.Role, val)));
       }
 
       #endregion

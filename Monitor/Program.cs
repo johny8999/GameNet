@@ -137,7 +137,7 @@ app.Use(async (context, next) =>
   }
   catch (Exception ex)
   {
-    var _Logger = services.GetRequiredService<ILogger>();
+    var logger = services.GetRequiredService<ILogger>();
     // _Logger.Fatal(ex);
   }
 }

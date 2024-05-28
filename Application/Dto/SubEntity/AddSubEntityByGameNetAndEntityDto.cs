@@ -1,8 +1,7 @@
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using FrameWork.DataAnnotations.String;
 
-namespace Application.Dto.Entity;
+namespace Application.Dto.SubEntity;
 
 public sealed class AddSubEntityByGameNetAndEntityDto
 {

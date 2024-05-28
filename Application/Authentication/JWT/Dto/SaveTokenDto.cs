@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using FrameWork.DataAnnotations.String;
 
 namespace Application.Authentication.JWT.Dto;

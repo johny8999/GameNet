@@ -9,10 +9,12 @@ using Application.Seed.UserRole;
 using Application.Services;
 using FrameWork.Services;
 using Infra.Data.Repositories.City;
+using Infra.Data.Repositories.CustomerAccounting;
 using Infra.Data.Repositories.Entity;
 using Infra.Data.Repositories.GameNet;
 using Infra.Data.Repositories.Roles;
 using Infra.Data.Repositories.SubEntity;
+using Infra.Data.Repositories.SubEntityGameNet;
 using Infra.Data.Repositories.UserRole;
 using Infra.Data.Repositories.Users;
 using Logger.Serilog;
@@ -49,6 +51,13 @@ public static class DependencyInjection
 
 
     services.AddScoped<ICityRepository, CityRepository>();
+
+
+    services.AddScoped<ICustomerAccountingRepository, CustomerAccountingRepository>();
+    services.AddScoped<ICustomerAccountingApplication, CustomerAccountingApplication>();
+
+
+    services.AddScoped<ISubEntityGameNetRepository, SubEntityGameNetRepository>();
 
 
     #region Seed

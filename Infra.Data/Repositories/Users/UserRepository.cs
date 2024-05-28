@@ -23,9 +23,9 @@ public class UserRepository : Repository<TblUsers>, IUserRepository
     return await _userManager.CreateAsync(entity, password);
   }
 
-  public async Task<IdentityResult> CreateUserAsync(TblUsers User)
+  public async Task<IdentityResult> CreateUserAsync(TblUsers user)
   {
-    return await _userManager.CreateAsync(User);
+    return await _userManager.CreateAsync(user);
   }
 
   public async Task<IdentityResult> AddToRolesAsync(Domain.Models.TblUsers tblUser, IEnumerable<string> roles)

@@ -23,7 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Seed\" />
+    <Folder Include="Common\Extention\" />
+    <Folder Include="Dto\CustomerAccounting\Response\" />
     <Folder Include="Dto\GameNet\Response\" />
     <Folder Include="Dto\Role\Response\" />
     <Folder Include="Seed\Role\" />

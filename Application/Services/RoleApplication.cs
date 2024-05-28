@@ -1,6 +1,4 @@
-using System.Net;
 using Application.Common.Responses;
-using Application.Common.Statics;
 using Application.Dto.Role.Request;
 using Application.Interfaces;
 using FrameWork.ExMethods;

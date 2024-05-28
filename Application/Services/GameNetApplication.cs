@@ -10,7 +10,6 @@ using FrameWork.Services;
 using Infra.Data.Repositories.City;
 using Infra.Data.Repositories.GameNet;
 using Mapster;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services;

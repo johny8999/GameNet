@@ -3,9 +3,4 @@ using Infra.Data.Context;
 
 namespace Infra.Data.Repositories.City;
 
-public class CityRepository: Repository<TblCity>, ICityRepository
-{
-  public CityRepository(MainContext context) : base(context)
-  {
-  }
-}
+public class CityRepository(MainContext context) : Repository<TblCity>(context), ICityRepository;

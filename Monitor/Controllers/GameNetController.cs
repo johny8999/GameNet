@@ -4,20 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Template.Controllers;
 
-public class GameNetController : ControllerBase
+public class GameNetController(IGameNetApplication service) : ControllerBase
 {
-  private readonly IGameNetApplication _service;
-
-  public GameNetController(IGameNetApplication service)
-  {
-    _service = service;
-  }
-
   [HttpPost("[action]")]
   public async Task<IActionResult> AddGameNetAsync(
     [FromBody] AddGameNetDto input)
   {
-    var result = await _service.AddGameNetAsync(input);
+    var result = await service.AddGameNetAsync(input);
     return StatusCode(result.StatusCode, result);
   }
 }

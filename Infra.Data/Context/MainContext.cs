@@ -19,7 +19,7 @@ public class MainContext : IdentityDbContext<TblUsers, TblRole, Guid, IdentityUs
   public DbSet<TblCustomerAccounting> CustomerAccounting { get; set; }
   public DbSet<TblDebt> Debt { get; set; }
   public DbSet<TblEntity> Entity { get; set; }
-  public DbSet<TblSubEntityGameNet> EntityGameNet { get; set; }
+  public DbSet<TblSubEntityGameNet> SubEntityGameNet { get; set; }
   public DbSet<TblGameNet> GameNet { get; set; }
   public DbSet<Tblprovinces> Provinces { get; set; }
   public DbSet<TblUserGameNet> TblUserGameNet { get; set; }

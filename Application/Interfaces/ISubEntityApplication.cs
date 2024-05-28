@@ -1,7 +1,5 @@
 using Application.Common.Statics;
-using Application.Dto.Entity;
-using Domain.Interfaces;
-using Domain.Models;
+using Application.Dto.SubEntity;
 
 namespace Application.Interfaces;
 

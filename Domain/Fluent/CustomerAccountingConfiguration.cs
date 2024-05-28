@@ -16,11 +16,5 @@ public class CustomerAccountingConfiguration:IEntityTypeConfiguration<TblCustome
       .HasPrincipalKey(a => a.Id)
       .HasForeignKey(a => a.UserId)
       .OnDelete(DeleteBehavior.Restrict);
-
-    builder.HasOne(a => a.TblDebt)
-      .WithMany(a => a.TblCustomerAccountings)
-      .HasPrincipalKey(a => a.Id)
-      .HasForeignKey(a => a.UserId)
-      .OnDelete(DeleteBehavior.Restrict);
   }
 }

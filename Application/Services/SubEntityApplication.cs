@@ -1,7 +1,7 @@
 using System.Net;
 using Application.Common.Responses;
 using Application.Common.Statics;
-using Application.Dto.Entity;
+using Application.Dto.SubEntity;
 using Application.Interfaces;
 using Domain.Models;
 using FrameWork.ExMethods;
@@ -10,7 +10,6 @@ using Infra.Data.Repositories.Entity;
 using Infra.Data.Repositories.GameNet;
 using Infra.Data.Repositories.SubEntity;
 using Mapster;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services;
@@ -40,11 +39,11 @@ public class SubEntityApplication : ISubEntityApplication
     {
       #region Entity Exist
 
-      List<TblEntity>? EntityExist = new();
+      List<TblEntity>? entityExist = new();
       {
-        EntityExist =
+        entityExist =
           await _entityRepository.GetNoTraking.Where(a => a.Id == input.EntityId.ToGuid()).ToListAsync();
-        if (EntityExist.Count <= 0)
+        if (entityExist.Count <= 0)
         {
           return _response.GenerateResponse(HttpStatusCode.BadRequest,
             ReturnMessages.FailedAdd("گروه وجود ندارد"));
@@ -55,11 +54,11 @@ public class SubEntityApplication : ISubEntityApplication
 
       #region ExistGameNet
 
-      List<TblGameNet>? ExistGameNet = new();
+      List<TblGameNet>? existGameNet = new();
       {
-        ExistGameNet = await _gameNetRepository.GetNoTraking
+        existGameNet = await _gameNetRepository.GetNoTraking
           .Where(a => a.Id == input.EntityId.ToGuid()).ToListAsync();
-        if (ExistGameNet.Count <= 0)
+        if (existGameNet.Count <= 0)
         {
           return _response.GenerateResponse(HttpStatusCode.BadRequest,
             ReturnMessages.FailedAdd("گیم نت وجود ندارد"));
@@ -70,11 +69,11 @@ public class SubEntityApplication : ISubEntityApplication
 
       #region SubEntity Exist
 
-      var SubEntityExist = await _repository.GetNoTraking
-        .Where(a => EntityExist.FirstOrDefault()!.Id == input.EntityId.ToGuid()
+      var subEntityExist = await _repository.GetNoTraking
+        .Where(a => entityExist.FirstOrDefault()!.Id == input.EntityId.ToGuid()
                     && a.Name == input.Name
-                    && ExistGameNet.FirstOrDefault()!.Id == input.GameNetId.ToGuid()).AnyAsync();
-      if (SubEntityExist)
+                    && existGameNet.FirstOrDefault()!.Id == input.GameNetId.ToGuid()).AnyAsync();
+      if (subEntityExist)
       {
         return _response.GenerateResponse(HttpStatusCode.BadRequest,
           ReturnMessages.FailedAdd("این قبلا برای این گیم نت ثبت شده است"));
@@ -94,5 +93,11 @@ public class SubEntityApplication : ISubEntityApplication
       return _response.GenerateResponse(HttpStatusCode.InternalServerError,
         ReturnMessages.Faile());
     }
+  }
+
+//Add time for vide games
+  public async Task<ResponseDto> AddTimeToEntityAsync(AddTimeToEntityDto input)
+  {
+    return default;
   }
 }

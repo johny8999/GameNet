@@ -12,16 +12,16 @@ namespace Domain.Interfaces
       IQueryable<TEntity> Get { get; }
       IQueryable<TEntity> GetNoTraking { get; }
 
-      Task AddAsync(TEntity entity, bool AutoSave = true);
-      Task AddRangeAsync(IEnumerable<TEntity> entities, bool AutoSave = true);
+      Task AddAsync(TEntity entity, bool autoSave = true);
+      Task AddRangeAsync(IEnumerable<TEntity> entities, bool autoSave = true);
 
-      Task DeleteAsync(TEntity entity, bool AutoSave = true);
-      Task DeleteRangeAsync(IEnumerable<TEntity> entities, bool AutoSave = true);
+      Task DeleteAsync(TEntity entity, bool autoSave = true);
+      Task DeleteRangeAsync(IEnumerable<TEntity> entities, bool autoSave = true);
 
-      Task UpdateAsync(TEntity entity, bool AutoSave = true);
-      Task UpdateRangeAsync(IEnumerable<TEntity> entities, bool AutoSave = true);
+      Task UpdateAsync(TEntity entity, bool autoSave = true);
+      Task UpdateRangeAsync(IEnumerable<TEntity> entities, bool autoSave = true);
 
-      Task<TEntity> GetById(params object[] Id);
+      Task<TEntity> GetById(params object[] id);
 
       Task<int> SaveChangeAsync();
     }

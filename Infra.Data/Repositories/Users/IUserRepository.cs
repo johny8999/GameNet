@@ -18,5 +18,5 @@ public interface IUserRepository:IRepository<TblUsers>
   Task<SignInResult> PasswordSignInAsync(Domain.Models.TblUsers tblUser, string password, bool isPersistent, bool lockoutOnFailure);
   Task<IdentityResult> RemoveFromRolesAsync(Domain.Models.TblUsers tblUser, IEnumerable<string> roles);
   Task<IdentityResult> ResetPasswordAsync(Domain.Models.TblUsers tblUser, string token, string newPassword);
-  Task<IdentityResult> CreateUserAsync(TblUsers User);
+  Task<IdentityResult> CreateUserAsync(TblUsers user);
 }
