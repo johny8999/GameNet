@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\14014566\\Desktop\\Monitor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Migrations\\20240525070948__initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Infra.Data\\Migrations\\20240525070948__initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Migrations\\20240528114536_mg1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Infra.Data\\Migrations\\20240528114536_mg1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20240525070948__initial.cs",
-              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Migrations\\20240525070948__initial.cs",
-              "RelativeDocumentMoniker": "Infra.Data\\Migrations\\20240525070948__initial.cs",
-              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Migrations\\20240525070948__initial.cs",
-              "RelativeToolTip": "Infra.Data\\Migrations\\20240525070948__initial.cs",
+              "Title": "20240528114536_mg1.cs",
+              "DocumentMoniker": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Migrations\\20240528114536_mg1.cs",
+              "RelativeDocumentMoniker": "Infra.Data\\Migrations\\20240528114536_mg1.cs",
+              "ToolTip": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Migrations\\20240528114536_mg1.cs",
+              "RelativeToolTip": "Infra.Data\\Migrations\\20240528114536_mg1.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-25T07:09:48.379Z",
+              "WhenOpened": "2024-05-28T11:45:36.241Z",
               "EditorCaption": ""
             }
           ]

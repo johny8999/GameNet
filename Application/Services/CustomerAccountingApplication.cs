@@ -63,8 +63,8 @@ public class CustomerAccountingApplication(
       #region Add
 
       {
-        var customerAccount = input.Adapt<TblCustomerAccounting>();
-        await repository.AddAsync(customerAccount);
+        var result = input.Adapt<TblCustomerAccounting>();
+        await repository.AddAsync(result);
       }
 
       #endregion Add
@@ -99,7 +99,7 @@ public class CustomerAccountingApplication(
 
       #region Cheking
 
-      TblSubEntityGameNet? subEntityGameNet = new();
+      TblSubEntityGameNet? subEntityGameNet;
       {
         subEntityGameNet =
           await subEntityGameNetRepository.GetNoTraking
@@ -124,11 +124,54 @@ public class CustomerAccountingApplication(
       #region Add
 
       {
-        //var q = subEntityGameNet.Price / input.PurchaseTime;
-        return default;
+        input.Purchase = subEntityGameNet.Price * input.PurchaseTime;
+        var result = input.Adapt<TblCustomerAccounting>();
+        await repository.AddAsync(result);
       }
 
       #endregion Add
+
+      return response.GenerateResponse(HttpStatusCode.OK,
+        ReturnMessages.SuccessfulAdd("مبلغ"));
+    }
+    catch (ArgumentException ex)
+    {
+      serilogger.Debug(ex.Message);
+      return response.GenerateResponse(HttpStatusCode.BadRequest,
+        ReturnMessages.GeneralPrint(ex.Message));
+    }
+    catch (Exception ex)
+    {
+      serilogger.Error(ex);
+      return response.GenerateResponse(HttpStatusCode.InternalServerError,
+        ReturnMessages.GeneralPrint("خطایی رخ داد"));
+    }
+  }
+
+  public async Task<ResponseDto> SelectUserPurchaseByDateAsync(SelectUserPurchaseByDateDto input)
+  {
+    try
+    {
+      #region Validation
+
+      input.CheckModelState(serviceProvider);
+
+      #endregion
+
+      #region Select and calculate user
+
+      decimal sumUserPurchaseDate;
+      {
+        sumUserPurchaseDate = await repository.GetNoTraking.Where(a => a.UserId == input.UserId.ToGuid()
+                                                                       && a.PurchaseDate.Date ==
+                                                                       input.PurchaseDate.Date)
+          .SumAsync(a => a.Purchase);
+      }
+
+      #endregion Select and calculate user
+
+      return response.GenerateResponse(HttpStatusCode.OK,
+        ReturnMessages.SuccessfulGet("مبلغ خرید مشتری"), sumUserPurchaseDate);
     }
     catch (ArgumentException ex)
     {

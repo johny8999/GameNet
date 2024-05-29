@@ -7,4 +7,5 @@ public interface ICustomerAccountingApplication
 {
   Task<ResponseDto> AddCustomerAccountingAsync(AddCustomerAccountingDto input);
   Task<ResponseDto> AddCustomerAccountByTimeAsync(AddCustomerAccountByTimeDto input);
+  Task<ResponseDto> SelectUserPurchaseByDateAsync(SelectUserPurchaseByDateDto input);
 }

@@ -15,6 +15,7 @@ public sealed class AddCustomerAccountByTimeDto
   [Required]
   public short PurchaseTime { get; set; }
 
+  [JsonIgnore] public decimal Purchase { get; set; }
   [JsonIgnore] public DateTime PurchaseDate { get; set; } = DateTime.Now;
 
   [Display(Name = "'گیم نت")]

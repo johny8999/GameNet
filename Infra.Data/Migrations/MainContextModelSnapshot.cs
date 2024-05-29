@@ -270,7 +270,7 @@ namespace Infra.Data.Migrations
 
                     b.HasIndex("SubEntityId");
 
-                    b.ToTable("EntityGameNet");
+                    b.ToTable("SubEntityGameNet");
                 });
 
             modelBuilder.Entity("Domain.Models.TblUserGameNet", b =>
