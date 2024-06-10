@@ -1,15 +1,12 @@
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\bin\Debug\net8.0\FrameWork.deps.json
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\bin\Debug\net8.0\FrameWork.dll
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\bin\Debug\net8.0\FrameWork.pdb
-C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.csproj.AssemblyReference.cache
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.AssemblyInfoInputs.cache
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.AssemblyInfo.cs
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.csproj.CoreCompileInputs.cache
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.sourcelink.json
-C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.csproj.Up2Date
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.dll
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\refint\FrameWork.dll
 C:\Users\14014566\Desktop\Monitor\FrameWork\FrameWork\obj\Debug\net8.0\FrameWork.pdb

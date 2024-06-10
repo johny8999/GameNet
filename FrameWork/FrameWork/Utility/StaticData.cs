@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 
+
 namespace FrameWork.Utility;
 
 public static class StaticData
