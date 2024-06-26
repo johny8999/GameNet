@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SB2qQSThlBQTR3bRqeCEmoXB3G63IanRSNDbR1DOzzJ+2ztKs0XESsIK88oiyg6gOWHzispa5UIDu6DmBLdNSA==",
+  "dgSpecHash": "vd8qHoi2Ybs=",
   "success": true,
   "projectFilePath": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.IOC\\Infra.IOC.csproj",
   "expectedPackageFiles": [
@@ -84,7 +84,10 @@
     "C:\\Users\\14014566\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
     "C:\\Users\\14014566\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\14014566\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
-    "C:\\Users\\14014566\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    "C:\\Users\\14014566\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\14014566\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.5\\microsoft.netcore.app.ref.8.0.5.nupkg.sha512",
+    "C:\\Users\\14014566\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.5\\microsoft.windowsdesktop.app.ref.8.0.5.nupkg.sha512",
+    "C:\\Users\\14014566\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.5\\microsoft.aspnetcore.app.ref.8.0.5.nupkg.sha512"
   ],
   "logs": []
 }

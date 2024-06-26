@@ -1,5 +1,6 @@
 C:\Users\14014566\Desktop\Monitor\Monitor\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\14014566\Desktop\Monitor\Monitor\bin\Debug\net8.0\appsettings.json
+C:\Users\14014566\Desktop\Monitor\Monitor\bin\Debug\net8.0\Monitor.staticwebassets.endpoints.json
 C:\Users\14014566\Desktop\Monitor\Monitor\bin\Debug\net8.0\Monitor.exe
 C:\Users\14014566\Desktop\Monitor\Monitor\bin\Debug\net8.0\Monitor.deps.json
 C:\Users\14014566\Desktop\Monitor\Monitor\bin\Debug\net8.0\Monitor.runtimeconfig.json
@@ -153,14 +154,16 @@ C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\Monitor.csproj.CoreCo
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\Monitor.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\Monitor.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\Monitor.sourcelink.json
+C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\scopedcss\bundle\Monitor.styles.css
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\staticwebassets\msbuild.Monitor.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\staticwebassets\msbuild.Monitor.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\staticwebassets\msbuild.build.Monitor.props
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Monitor.props
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Monitor.props
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\scopedcss\bundle\Monitor.styles.css
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\Monitor.csproj.Up2Date
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\Monitor.dll
 C:\Users\14014566\Desktop\Monitor\Monitor\obj\Debug\net8.0\refint\Monitor.dll

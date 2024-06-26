@@ -39,7 +39,7 @@ public class SubEntityApplication : ISubEntityApplication
     {
       #region Entity Exist
 
-      List<TblEntity>? entityExist = new();
+      List<TblEntity>? entityExist;
       {
         entityExist =
           await _entityRepository.GetNoTraking.Where(a => a.Id == input.EntityId.ToGuid()).ToListAsync();
@@ -54,7 +54,7 @@ public class SubEntityApplication : ISubEntityApplication
 
       #region ExistGameNet
 
-      List<TblGameNet>? existGameNet = new();
+      List<TblGameNet>? existGameNet;
       {
         existGameNet = await _gameNetRepository.GetNoTraking
           .Where(a => a.Id == input.EntityId.ToGuid()).ToListAsync();

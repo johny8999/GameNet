@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cwGIUp7zIOwDRkr3H9k9LvOVsmmzsQJU1gqwlgiIa3bxxd0iDDnpWJ8EoF1G1SCzy69+tD1bwGi3twaf0x1c5w==",
+  "dgSpecHash": "7I4NMkHpY58=",
   "success": true,
   "projectFilePath": "C:\\Users\\14014566\\Desktop\\Monitor\\FrameWork\\Logger.Serilog\\Logger.Serilog.csproj",
   "expectedPackageFiles": [
@@ -73,7 +73,10 @@
     "C:\\Users\\14014566\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\14014566\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\14014566\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\14014566\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\14014566\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\14014566\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.5\\microsoft.netcore.app.ref.8.0.5.nupkg.sha512",
+    "C:\\Users\\14014566\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.5\\microsoft.windowsdesktop.app.ref.8.0.5.nupkg.sha512",
+    "C:\\Users\\14014566\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.5\\microsoft.aspnetcore.app.ref.8.0.5.nupkg.sha512"
   ],
   "logs": []
 }

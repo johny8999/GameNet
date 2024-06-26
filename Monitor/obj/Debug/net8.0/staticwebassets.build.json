@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "G2hcu6Jta1rIkcA+UGigIje4dypZgQACQPrUahkmaBA=",
+  "Hash": "XxeUEO2JCdv+5iMy5uRuwnL11TowEbTY4oCGlz1aCMQ=",
   "Source": "Monitor",
   "BasePath": "_content/Monitor",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

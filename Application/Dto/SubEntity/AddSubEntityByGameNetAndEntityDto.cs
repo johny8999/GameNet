@@ -19,5 +19,5 @@ public sealed class AddSubEntityByGameNetAndEntityDto
   [GUID]
   public string GameNetId { get; set; }
 
-  [Display(Name = "قیمت")] [Required] public double Price { get; set; }
+
 }

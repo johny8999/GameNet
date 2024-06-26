@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BZXwlYREsj2t11wu0Lw8+eM9ArPYCDDZPyYtxq/Mp2C+UmQg5XxQaUlzrDBGngoTAzdu7GVVoe4nUxtrXjy8eA==",
+  "dgSpecHash": "S4l1QuSjcfA=",
   "success": true,
   "projectFilePath": "C:\\Users\\14014566\\Desktop\\Monitor\\Infra.Data\\Infra.Data.csproj",
   "expectedPackageFiles": [
@@ -105,7 +105,10 @@
     "C:\\Users\\14014566\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\14014566\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
     "C:\\Users\\14014566\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\14014566\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\14014566\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\14014566\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.5\\microsoft.netcore.app.ref.8.0.5.nupkg.sha512",
+    "C:\\Users\\14014566\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.5\\microsoft.windowsdesktop.app.ref.8.0.5.nupkg.sha512",
+    "C:\\Users\\14014566\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.5\\microsoft.aspnetcore.app.ref.8.0.5.nupkg.sha512"
   ],
   "logs": []
 }
