@@ -2,6 +2,7 @@ using System.Net;
 using Application.Common.Responses;
 using Application.Common.Statics;
 using Application.Dto.GameNet.Request;
+using Application.Dto.GameNet.Response;
 using Application.Interfaces;
 using Domain.Models;
 using FrameWork.Exceptions;
@@ -67,5 +68,38 @@ public class GameNetApplication : IGameNetApplication
       return _response.GenerateResponse(HttpStatusCode.InternalServerError,
         ReturnMessages.Faile());
     }
+  }
+
+  public async Task<ResponseDto> GetByIdAsync(GetGameNetByIdDto input)
+  {
+    #region Validation
+
+    input.CheckModelState(_serviceProvider);
+
+    #endregion
+
+    #region Get Game Net
+
+    {
+      var gameNet = await _repository
+        .GetNoTraking.SingleOrDefaultAsync(a => a.Id == input.Id.ToGuid());
+
+      if (gameNet is null)
+      {
+        return _response.GenerateResponse(HttpStatusCode.BadRequest,
+          ReturnMessages.FailedGet("گیم نت وجود ندارد"));
+      }
+
+      var result = new GetGameNetByIdResponseDto
+      {
+        Id = gameNet.Id.ToString(),
+        Name = gameNet.Name
+      };
+
+      return _response.GenerateResponse(HttpStatusCode.OK,
+        ReturnMessages.SuccessfulGet("گیم نت"), result);
+    }
+
+    #endregion Get Game Net
   }
 }

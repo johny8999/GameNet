@@ -23,7 +23,7 @@ public class SeedRoles : ISeedRoles
   {
     try
     {
-        #region AdminPage
+      #region AdminPage
 
         {
           if (!await _roleRepository.GetNoTraking.AnyAsync(a => a.ConcurrencyStamp == "AdminPage"))
@@ -53,7 +53,7 @@ public class SeedRoles : ISeedRoles
 
       #endregion AdminPage
 
-      #region Seller
+      #region Customer
 
       {
         if (!await _roleRepository.GetNoTraking.AnyAsync(a => a.ConcurrencyStamp == "Customer"))

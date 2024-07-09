@@ -9,29 +9,22 @@ using FrameWork.Services;
 using Infra.Data.Repositories.Entity;
 using Infra.Data.Repositories.GameNet;
 using Infra.Data.Repositories.SubEntity;
+using Infra.Data.Repositories.SubEntityGameNet;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services;
 
-public class SubEntityApplication : ISubEntityApplication
+public class SubEntityApplication(
+  ISubEntityRepository repository,
+  IEntityRepository entityRepository,
+  IGameNetRepository gameNetRepository,
+  IResponse response,
+  ISerilogger serilogger,
+  ISubEntityGameNetRepository subEntityGameNetRepository) : ISubEntityApplication
 {
-  private readonly ISubEntityRepository _repository;
-  private readonly IEntityRepository _entityRepository;
-  private readonly IGameNetRepository _gameNetRepository;
-  private readonly IResponse _response;
-  private readonly ISerilogger _serilogger;
+  private readonly ISubEntityGameNetRepository _subEntityGameNetRepository = subEntityGameNetRepository;
 
-
-  public SubEntityApplication(ISubEntityRepository repository, IEntityRepository entityRepository,
-    IGameNetRepository gameNetRepository, IResponse response, ISerilogger serilogger)
-  {
-    _repository = repository;
-    _entityRepository = entityRepository;
-    _gameNetRepository = gameNetRepository;
-    _response = response;
-    _serilogger = serilogger;
-  }
 
   public async Task<ResponseDto> AddSubEntityByGameNetAndEntityAsync(AddSubEntityByGameNetAndEntityDto input)
   {
@@ -41,11 +34,10 @@ public class SubEntityApplication : ISubEntityApplication
 
       List<TblEntity>? entityExist;
       {
-        entityExist =
-          await _entityRepository.GetNoTraking.Where(a => a.Id == input.EntityId.ToGuid()).ToListAsync();
+        entityExist = await entityRepository.GetNoTraking.Where(a => a.Id == input.EntityId.ToGuid()).ToListAsync();
         if (entityExist.Count <= 0)
         {
-          return _response.GenerateResponse(HttpStatusCode.BadRequest,
+          return response.GenerateResponse(HttpStatusCode.BadRequest,
             ReturnMessages.FailedAdd("گروه وجود ندارد"));
         }
       }
@@ -56,11 +48,11 @@ public class SubEntityApplication : ISubEntityApplication
 
       List<TblGameNet>? existGameNet;
       {
-        existGameNet = await _gameNetRepository.GetNoTraking
+        existGameNet = await gameNetRepository.GetNoTraking
           .Where(a => a.Id == input.EntityId.ToGuid()).ToListAsync();
         if (existGameNet.Count <= 0)
         {
-          return _response.GenerateResponse(HttpStatusCode.BadRequest,
+          return response.GenerateResponse(HttpStatusCode.BadRequest,
             ReturnMessages.FailedAdd("گیم نت وجود ندارد"));
         }
       }
@@ -69,13 +61,13 @@ public class SubEntityApplication : ISubEntityApplication
 
       #region SubEntity Exist
 
-      var subEntityExist = await _repository.GetNoTraking
+      var subEntityExist = await repository.GetNoTraking
         .Where(a => entityExist.FirstOrDefault()!.Id == input.EntityId.ToGuid()
                     && a.Name == input.Name
                     && existGameNet.FirstOrDefault()!.Id == input.GameNetId.ToGuid()).AnyAsync();
       if (subEntityExist)
       {
-        return _response.GenerateResponse(HttpStatusCode.BadRequest,
+        return response.GenerateResponse(HttpStatusCode.BadRequest,
           ReturnMessages.FailedAdd("این قبلا برای این گیم نت ثبت شده است"));
       }
 
@@ -83,14 +75,14 @@ public class SubEntityApplication : ISubEntityApplication
 
       var result = input.Adapt<TblSubEntity>();
 
-      await _repository.AddAsync(result);
-      return _response.GenerateResponse(HttpStatusCode.OK,
+      await repository.AddAsync(result);
+      return response.GenerateResponse(HttpStatusCode.OK,
         ReturnMessages.SuccessfulAdd("User"));
     }
     catch (Exception e)
     {
-      _serilogger.Error(e);
-      return _response.GenerateResponse(HttpStatusCode.InternalServerError,
+      serilogger.Error(e);
+      return response.GenerateResponse(HttpStatusCode.InternalServerError,
         ReturnMessages.Faile());
     }
   }

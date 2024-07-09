@@ -124,8 +124,9 @@ public class CustomerAccountingApplication(
       #region Add
 
       {
-        input.Purchase = subEntityGameNet.Price * input.PurchaseTime;
         var result = input.Adapt<TblCustomerAccounting>();
+        result.Purchase = subEntityGameNet.Price * input.PurchaseTime;
+        result.PurchaseDate = DateTime.Now;
         await repository.AddAsync(result);
       }
 

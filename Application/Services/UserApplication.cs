@@ -11,35 +11,27 @@ using Domain.Models;
 using FrameWork.ExMethods;
 using FrameWork.Services;
 using FrameWork.Utility;
+using Infra.Data.Repositories.Roles;
+using Infra.Data.Repositories.UserRole;
 using Infra.Data.Repositories.Users;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services;
 
-public class UserApplication : IUserApplication
+public class UserApplication(
+  IUserRepository userRepository,
+  IResponse response,
+  IJwtBuilder builder,
+  IUserRoleRepository userRoleRepository,
+  ISerilogger serilogger)
+  : IUserApplication
 {
-  private readonly IUserRepository _userRepository;
-  private readonly IResponse _response;
-  private readonly IJwtBuilder _jwtBuilder;
-  private readonly ISerilogger _serilogger;
-
-  public UserApplication(
-    IUserRepository userRepository,
-    IResponse response, IJwtBuilder jwtBuilder, ISerilogger serilogger)
-  {
-    _userRepository = userRepository;
-
-    _response = response;
-    _jwtBuilder = jwtBuilder;
-    _serilogger = serilogger;
-  }
-
   public async Task<ResponseDto> LoginByEmailPasswordAsync(LoginByEmailPasswordDto input)
   {
     try
     {
-      var jwtBuilder = await _jwtBuilder.CreateTokenAsync(new CreateTokenDto
+      var jwtBuilder = await builder.CreateTokenAsync(new CreateTokenDto
       {
         UserEmail = input.Email,
         Password = input.Password.ToString()
@@ -52,20 +44,20 @@ public class UserApplication : IUserApplication
 
       //return jwtBuilder;
       var createTokenResult = jwtBuilder!.Result.Adapt<OutCreateTokenAsync>();
-      _jwtBuilder.GetPrincipalOfExpirationToken(createTokenResult.Token);
+      builder.GetPrincipalOfExpirationToken(createTokenResult.Token);
 
-      return _response.GenerateResponse(HttpStatusCode.OK
+      return response.GenerateResponse(HttpStatusCode.OK
         , ReturnMessages.GeneralPrint("Login was successful.")
         , new OutLoginByEmail()
         {
-          RefreshToken = _jwtBuilder.GenerateRefreshToken(),
+          RefreshToken = builder.GenerateRefreshToken(),
           Token = createTokenResult.Token
         });
     }
     catch (Exception e)
     {
-      _serilogger.Error(e);
-      return _response.GenerateResponse(HttpStatusCode.InternalServerError,
+      serilogger.Error(e);
+      return response.GenerateResponse(HttpStatusCode.InternalServerError,
         ReturnMessages.Faile());
     }
   }
@@ -74,33 +66,71 @@ public class UserApplication : IUserApplication
   {
     try
     {
-      var checkEmail = await _userRepository.GetNoTraking.AnyAsync(a => a.Email == input.Email);
-      if (checkEmail)
+      #region checkEmail
+
       {
-        // _logger.Error("Email is Used");
-        var response = _response.GenerateResponse(HttpStatusCode.BadRequest, ReturnMessages.Douplicate("Email"));
-        return response;
+        var checkEmail = await userRepository.GetNoTraking.AnyAsync(a => a.Email == input.Email);
+        if (checkEmail)
+        {
+          // _logger.Error("Email is Used");
+          var response1 = response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.Douplicate("ایمیل"));
+          return response1;
+        }
       }
 
-      TblUsers user = new()
+      #endregion checkEmail
+
+      #region chek National code
+
       {
-        Email = input.Email,
-        FirstName = input.FirstName,
-        LastName = input.LastName,
-        PasswordHash = input.Password,
-        NormalizedEmail = input.Email,
-        NationalCode = input.NationalCode,
-        UserName = input.Email //.Split('@')[0] + new Random().Next(1000, 9999),
-      };
-      await _userRepository.AddAsync(user);
-      var result = _response.GenerateResponse(HttpStatusCode.OK,
+        var checkNationalCode = await userRepository.GetNoTraking.AnyAsync(a => a.NationalCode == input.NationalCode);
+        if (checkNationalCode)
+        {
+          // _logger.Error("Email is Used");
+          var response1 = response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.Douplicate("کد ملی"));
+          return response1;
+        }
+      }
+
+      #endregion chek National code
+
+      #region Add User
+
+      TblUsers user = new();
+      {
+        user.Email = input.Email;
+        user.FirstName = input.FirstName;
+        user.LastName = input.LastName;
+        user.PasswordHash = input.Password;
+        user.NormalizedEmail = input.Email;
+        user.NationalCode = input.NationalCode;
+        user.UserName = input.Email;
+
+        await userRepository.AddAsync(user);
+      }
+
+      #endregion Add User
+
+      #region addUserRole
+
+      await userRoleRepository.AddAsync(new TblUserRole
+      {
+        UserId = user.Id,
+        RoleId = "ef23660b-8344-4243-8276-576845a1b264".ToGuid()
+      });
+
+      #endregion addUserRole
+
+      var result = response.GenerateResponse(HttpStatusCode.OK,
         ReturnMessages.SuccessfulAdd("User"));
       return result;
     }
     catch (Exception e)
     {
-      _serilogger.Error(e);
-      return _response.GenerateResponse(HttpStatusCode.InternalServerError,
+      serilogger.Error(e);
+      return response.GenerateResponse(HttpStatusCode.InternalServerError,
         ReturnMessages.Faile());
     }
   }
