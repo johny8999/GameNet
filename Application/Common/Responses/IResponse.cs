@@ -1,6 +1,3 @@
-using System.Net;
-using Application.Common.Statics;
-
 namespace Application.Common.Responses;
 
 public interface IResponse

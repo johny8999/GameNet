@@ -7,7 +7,6 @@ using Infra.Data.Context;
 using Infra.IOC;
 using Logger.Serilog;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 

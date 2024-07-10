@@ -30,35 +30,34 @@ public static class DependencyInjection
     services.AddHttpClient();
 
     services.AddSingleton<ISerilogger, Serilogger>();
+
+    #region Application
+
     services.AddScoped<IUserApplication, UserApplication>();
-    services.AddScoped<IUserRepository, UserRepository>();
-
-    services.AddScoped<IJwtBuilder, JwtBuilder>();
-
+    services.AddScoped<IUserRoleApplication, UserRoleApplication>();
     services.AddScoped<IRoleApplication, RoleApplication>();
-    services.AddScoped<IUserRoleRepository, UserRoleRepository>();
-
-    services.AddScoped<IRoleRepository, RoleRepository>();
-    services.AddScoped<IRoleRepository, RoleRepository>();
-
     services.AddScoped<ISubEntityApplication, SubEntityApplication>();
-    services.AddScoped<ISubEntityRepository, SubEntityRepository>();
-
     services.AddScoped<IGameNetApplication, GameNetApplication>();
-    services.AddScoped<IGameNetRepository, GameNetRepository>();
-
-    services.AddScoped<IEntityRepository, EntityRepository>();
-
-
-    services.AddScoped<ICityRepository, CityRepository>();
-
-
-    services.AddScoped<ICustomerAccountingRepository, CustomerAccountingRepository>();
     services.AddScoped<ICustomerAccountingApplication, CustomerAccountingApplication>();
 
+    #endregion
 
+
+    #region Repository
+
+    services.AddScoped<IUserRepository, UserRepository>();
+    services.AddScoped<IJwtBuilder, JwtBuilder>();
+    services.AddScoped<IUserRoleRepository, UserRoleRepository>();
+    services.AddScoped<IRoleRepository, RoleRepository>();
+    services.AddScoped<IRoleRepository, RoleRepository>();
+    services.AddScoped<ISubEntityRepository, SubEntityRepository>();
+    services.AddScoped<IGameNetRepository, GameNetRepository>();
+    services.AddScoped<IEntityRepository, EntityRepository>();
+    services.AddScoped<ICityRepository, CityRepository>();
+    services.AddScoped<ICustomerAccountingRepository, CustomerAccountingRepository>();
     services.AddScoped<ISubEntityGameNetRepository, SubEntityGameNetRepository>();
 
+    #endregion Repository
 
     #region Seed
 

@@ -1,6 +1,4 @@
 using Application.Dto.SubEntity;
-using Application.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Template.Controllers;
 

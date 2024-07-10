@@ -1,0 +1,11 @@
+global using System.Net;
+global using Application.Interfaces;
+global using FrameWork.Services;
+global using Microsoft.EntityFrameworkCore;
+global using FrameWork.ExMethods;
+global using Application.Common.Responses;
+global using Application.Common.Statics;
+global using FrameWork.Utility;
+global using Domain.Models;
+global using Mapster;
+global using FrameWork.Exceptions;

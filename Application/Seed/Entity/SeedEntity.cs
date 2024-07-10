@@ -1,9 +1,4 @@
-using Domain.Models;
-using FrameWork.Exceptions;
-using FrameWork.ExMethods;
-using FrameWork.Services;
 using Infra.Data.Repositories.Entity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Seed.Entity;
 

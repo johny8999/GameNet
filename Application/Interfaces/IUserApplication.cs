@@ -1,4 +1,3 @@
-using Application.Common.Statics;
 using Application.Dto;
 using Application.Dto.Users.Request;
 

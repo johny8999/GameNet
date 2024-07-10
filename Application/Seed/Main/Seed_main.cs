@@ -5,31 +5,23 @@ using Application.Seed.UserRole;
 
 namespace Application.Seed.Main
 {
-  public class SeedMain : ISeedMain
+  public class SeedMain(ISeedRoles seedRoles, ISeedUser seedUser, ISeedUserRole seedUserRole, ISeedEntity seedEntity)
+    : ISeedMain
   {
-    private readonly ISeedRoles _seedRoles;
-    private readonly ISeedUser _seedUser;
-    private readonly ISeedUserRole _seedUserRole;
-    private readonly ISeedEntity _seedEntity ;
-
-    public SeedMain(ISeedRoles seedRoles, ISeedUser seedUser, ISeedUserRole seedUserRole, ISeedEntity seedEntity)
-    {
-      _seedRoles = seedRoles;
-      _seedUser = seedUser;
-      _seedUserRole = seedUserRole;
-      _seedEntity = seedEntity;
-    }
-
     public async Task<bool> RunAsync()
     {
       try
       {
-        await _seedRoles.RunAsync();
-        await _seedUser.RunAsync();
-        await _seedUserRole.RunAsync();
-        await _seedUserRole.RunAsync();
-        await _seedEntity.RunAsync();
-        return true;
+        var task = await Task.WhenAll(
+          seedRoles.RunAsync(),
+          seedUser.RunAsync(),
+          seedUserRole.RunAsync(),
+          seedUserRole.RunAsync(),
+          seedEntity.RunAsync()
+        );
+        var allTasksCompleted = task.All(a => a == true) ?  true : false;
+
+        return allTasksCompleted;
       }
       catch (Exception ex)
       {

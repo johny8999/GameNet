@@ -1,7 +1,4 @@
 using Application.Dto.CustomerAccounting.Request;
-using Application.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using Application.Services;
 
 namespace Template.Controllers;
 

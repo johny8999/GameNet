@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces;
+﻿using System;
+using Domain.Interfaces;
 using Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace Infra.Data.Repositories
 
       if (autoSave)
       {
-        await _context.SaveChangesAsync();
+        await SaveChangeAsync();
       }
     }
 
@@ -38,17 +39,29 @@ namespace Infra.Data.Repositories
       await DbEntities.AddRangeAsync(entities);
       if (autoSave)
       {
-        await _context.SaveChangesAsync();
+        await SaveChangeAsync();
       }
     }
 
     public async Task DeleteAsync(TEntity entity, bool autoSave = true)
     {
       DbEntities.Remove(entity);
+
       if (autoSave)
       {
-        await _context.SaveChangesAsync();
+        await SaveChangeAsync();
       }
+    }
+
+    public async Task<bool> ReturnDeleteAsync(TEntity entity, bool autoSave = true)
+    {
+      DbEntities.Remove(entity);
+      if (autoSave)
+      {
+        return await SaveChangeAsync();
+      }
+
+      return false;
     }
 
     public async Task DeleteRangeAsync(IEnumerable<TEntity> entities, bool autoSave = true)
@@ -56,9 +69,10 @@ namespace Infra.Data.Repositories
       DbEntities.RemoveRange(entities);
       if (autoSave)
       {
-        await _context.SaveChangesAsync();
+        await SaveChangeAsync();
       }
     }
+
 
     public async Task<TEntity> GetById(params object[] id)
     {
@@ -70,7 +84,7 @@ namespace Infra.Data.Repositories
       DbEntities.Update(entity);
       if (autoSave)
       {
-        await _context.SaveChangesAsync();
+        await SaveChangeAsync();
       }
     }
 
@@ -79,13 +93,21 @@ namespace Infra.Data.Repositories
       DbEntities.UpdateRange(entities);
       if (autoSave)
       {
-        await _context.SaveChangesAsync();
+        await SaveChangeAsync();
       }
     }
 
-    public async Task<int> SaveChangeAsync()
+    public async Task<bool> SaveChangeAsync()
     {
-      return await _context.SaveChangesAsync();
+      try
+      {
+        var result = await _context.SaveChangesAsync();
+        return result > 0;
+      }
+      catch (Exception ex)
+      {
+        return false;
+      }
     }
   }
 }

@@ -1,4 +1,3 @@
-using Domain.Models;
 using Infra.Data.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;

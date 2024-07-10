@@ -1,21 +1,10 @@
-using System.Net;
 using Application.Authentication.JWT;
 using Application.Authentication.JWT.Dto;
-using Application.Common.Responses;
-using Application.Common.Statics;
 using Application.Dto;
 using Application.Dto.Users.Request;
 using Application.Dto.Users.Response;
-using Application.Interfaces;
-using Domain.Models;
-using FrameWork.ExMethods;
-using FrameWork.Services;
-using FrameWork.Utility;
-using Infra.Data.Repositories.Roles;
 using Infra.Data.Repositories.UserRole;
 using Infra.Data.Repositories.Users;
-using Mapster;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services;
 

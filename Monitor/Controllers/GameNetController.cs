@@ -1,6 +1,4 @@
 using Application.Dto.GameNet.Request;
-using Application.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Template.Controllers;
 

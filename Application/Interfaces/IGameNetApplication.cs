@@ -1,4 +1,3 @@
-using Application.Common.Statics;
 using Application.Dto.GameNet.Request;
 
 namespace Application.Interfaces;

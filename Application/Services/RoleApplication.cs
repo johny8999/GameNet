@@ -1,11 +1,6 @@
-using Application.Common.Responses;
 using Application.Dto.Role.Request;
-using Application.Interfaces;
-using FrameWork.ExMethods;
-using FrameWork.Services;
 using Infra.Data.Repositories.Roles;
 using Infra.Data.Repositories.UserRole;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services;
 

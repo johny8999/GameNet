@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using FrameWork.DataAnnotations.String;
-using Newtonsoft.Json;
 
 namespace Application.Dto.CustomerAccounting.Request;
 

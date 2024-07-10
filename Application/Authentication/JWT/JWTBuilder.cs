@@ -1,22 +1,14 @@
 using System.IdentityModel.Tokens.Jwt;
-using System.Net;
 using System.Runtime.Caching;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Application.Authentication.JWT.Dto;
-using Application.Common.Responses;
-using Application.Common.Statics;
 using Application.Dto.Role.Request;
 using Application.Dto.Users.Response;
-using Application.Interfaces;
-using FrameWork.Exceptions;
-using FrameWork.ExMethods;
 using Infra.Data.Repositories.Users;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
-using FrameWork.Utility;
 
 namespace Application.Authentication.JWT;
 
