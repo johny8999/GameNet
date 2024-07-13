@@ -5,9 +5,9 @@ namespace Template.Controllers;
 public class UserRoleController(IUserRoleApplication service) : ControllerBase
 {
   [HttpPost("[action]")]
-  public async Task<IActionResult> ChangeRoleAsync([FromBody] ChangeRoleDto input)
+  public async Task<IActionResult> ChangeUserRoleAsync([FromBody] ChangeUserRole input)
   {
-       var result = await service.ChangeRoleAsync(input);
+       var result = await service.ChangeUserRoleAsync(input);
       return StatusCode(result.StatusCode, result);
   }
 }

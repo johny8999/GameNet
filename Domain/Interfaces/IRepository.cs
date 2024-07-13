@@ -13,6 +13,7 @@ namespace Domain.Interfaces
     IQueryable<TEntity> GetNoTraking { get; }
 
     Task AddAsync(TEntity entity, bool autoSave = true);
+    Task<bool>  ReturnAddAsync(TEntity entity, bool autoSave = true);
     Task AddRangeAsync(IEnumerable<TEntity> entities, bool autoSave = true);
 
     Task DeleteAsync(TEntity entity, bool autoSave = true);

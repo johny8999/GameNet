@@ -3,7 +3,7 @@ using FrameWork.DataAnnotations.String;
 
 namespace Application.Dto.UserRole.Request;
 
-public record ChangeRoleDto()
+public record AddUserRoleDto
 {
   [Display(Name = "شناسه کاربر")]
   [RequiredString]
@@ -13,10 +13,5 @@ public record ChangeRoleDto()
   [Display(Name = "شناسه نقش")]
   [RequiredString]
   [GUID]
-  public string OldRoleId { get; set; }
-
-  [Display(Name = "شناسه نقش")]
-  [RequiredString]
-  [GUID]
-  public string NewRoleId { get; set; }
+  public string RoleId { get; set; }
 }

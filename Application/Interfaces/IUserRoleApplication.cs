@@ -4,5 +4,5 @@ namespace Application.Interfaces;
 
 public interface IUserRoleApplication
 {
-  Task<ResponseDto> ChangeRoleAsync(ChangeRoleDto input);
+  Task<ResponseDto> ChangeUserRoleAsync(ChangeUserRole input);
 }

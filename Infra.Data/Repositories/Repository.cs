@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FrameWork.Services;
 
 namespace Infra.Data.Repositories
 {
@@ -12,9 +13,11 @@ namespace Infra.Data.Repositories
   {
     private readonly MainContext _context;
 
+
     public Repository(MainContext context)
     {
       _context = context;
+
       DbEntities = _context.Set<TEntity>();
     }
 
@@ -32,6 +35,18 @@ namespace Infra.Data.Repositories
       {
         await SaveChangeAsync();
       }
+    }
+
+    public virtual async Task<bool> ReturnAddAsync(TEntity entity, bool autoSave = true)
+    {
+      await DbEntities.AddAsync(entity);
+
+      if (autoSave)
+      {
+        return await SaveChangeAsync();
+      }
+
+      return false;
     }
 
     public async Task AddRangeAsync(IEnumerable<TEntity> entities, bool autoSave = true)
@@ -106,6 +121,7 @@ namespace Infra.Data.Repositories
       }
       catch (Exception ex)
       {
+
         return false;
       }
     }

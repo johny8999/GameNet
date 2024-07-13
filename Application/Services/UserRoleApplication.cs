@@ -13,7 +13,7 @@ public class UserRoleApplication(
   IServiceProvider serviceProvider,
   IUserRoleRepository repository) : IUserRoleApplication
 {
-  public async Task<ResponseDto> ChangeRoleAsync(ChangeRoleDto input)
+  public async Task<ResponseDto> ChangeUserRoleAsync(ChangeUserRole input)
   {
     try
     {
@@ -86,6 +86,77 @@ public class UserRoleApplication(
       return response.GenerateResponse(HttpStatusCode.BadRequest,
         ReturnMessages.GeneralPrint(ex.Message));
     }
+
+    catch (Exception ex)
+    {
+      serilogger.Error(ex);
+      return response.GenerateResponse(HttpStatusCode.InternalServerError,
+        ReturnMessages.GeneralPrint("خطایی رخ داد"));
+    }
+  }
+
+  public async Task<ResponseDto> AddUserRoleAsync(AddUserRoleDto input)
+  {
+    try
+    {
+      #region Validation
+
+      input.CheckModelState(serviceProvider);
+
+      #endregion
+
+      #region userCheking
+
+      {
+        var userChek = await userRepository.GetNoTraking
+          .AnyAsync(a => a.Id == input.UserId.ToGuid());
+
+        if (userChek is false)
+        {
+          return response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.NotExist("کاربر"));
+        }
+      }
+
+      #endregion userCheking
+
+      #region roleCheking
+
+      {
+        var roleChek = await roleRepository.GetNoTraking
+          .AnyAsync(a => a.Id == input.RoleId.ToGuid());
+
+        if (roleChek is false)
+        {
+          return response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.NotExist("نقش"));
+        }
+      }
+
+      #endregion roleCheking
+
+      #region Add Role
+
+      {
+        var userRole = input.Adapt<TblUserRole>();
+        if (await repository.ReturnAddAsync(userRole))
+
+          return response.GenerateResponse(HttpStatusCode.OK,
+            ReturnMessages.SuccessfulAdd("نقش"));
+
+        return response.GenerateResponse(HttpStatusCode.BadRequest,
+          ReturnMessages.FailedAdd("نقش"));
+      }
+
+      #endregion Add Role
+    }
+    catch (ArgumentException ex)
+    {
+      serilogger.Debug(ex.Message);
+      return response.GenerateResponse(HttpStatusCode.BadRequest,
+        ReturnMessages.GeneralPrint(ex.Message));
+    }
+
     catch (Exception ex)
     {
       serilogger.Error(ex);
