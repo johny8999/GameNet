@@ -135,12 +135,26 @@ public class UserRoleApplication(
 
       #endregion roleCheking
 
+      #region Cheking Doplicate Role and User
+
+      {
+        var doplicate = await repository.GetNoTraking
+          .AnyAsync(a => a.RoleId == input.RoleId.ToGuid()
+                                     && a.UserId == input.UserId.ToGuid());
+        if (doplicate )
+        {
+          return response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.Douplicate("نقش و کاربر"));
+        }
+
+      }
+      #endregion Cheking Doplicate Role and User
+
       #region Add Role
 
       {
         var userRole = input.Adapt<TblUserRole>();
         if (await repository.ReturnAddAsync(userRole))
-
           return response.GenerateResponse(HttpStatusCode.OK,
             ReturnMessages.SuccessfulAdd("نقش"));
 

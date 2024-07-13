@@ -27,6 +27,7 @@
     <Folder Include="Common\Extention\String\" />
     <Folder Include="Dto\CustomerAccounting\Response\" />
     <Folder Include="Dto\Role\Response\" />
+    <Folder Include="Dto\SubEntity\Response\" />
     <Folder Include="Dto\UserRole\Response\" />
     <Folder Include="Seed\Role\" />
     <Folder Include="Seed\Main\" />

@@ -1,6 +1,5 @@
 using System.Globalization;
 using Application.Authentication.Identity;
-using Application.Common.Statics;
 using Application.Seed.Main;
 using FrameWork.Utility;
 using Infra.Data.Context;

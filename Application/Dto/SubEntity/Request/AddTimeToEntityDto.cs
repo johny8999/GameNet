@@ -3,12 +3,13 @@ using FrameWork.DataAnnotations.String;
 
 namespace Application.Dto.SubEntity;
 
-public sealed class AddTimeToEntityDto
+public record AddTimeToEntityDto
 {
   [Display(Name = "گروه")]
   [RequiredString]
   [GUID]
   public string UserId { get; set; }
+
   [Display(Name = "گروه")]
   [RequiredString]
   [GUID]

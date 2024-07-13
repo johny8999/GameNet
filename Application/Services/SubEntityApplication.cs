@@ -1,4 +1,5 @@
 using Application.Dto.SubEntity;
+using Application.Dto.SubEntity.Request;
 using Infra.Data.Repositories.Entity;
 using Infra.Data.Repositories.GameNet;
 using Infra.Data.Repositories.SubEntity;
@@ -12,15 +13,19 @@ public class SubEntityApplication(
   IGameNetRepository gameNetRepository,
   IResponse response,
   ISerilogger serilogger,
+  IServiceProvider serviceProvider,
   ISubEntityGameNetRepository subEntityGameNetRepository) : ISubEntityApplication
 {
-  private readonly ISubEntityGameNetRepository _subEntityGameNetRepository = subEntityGameNetRepository;
-
-
   public async Task<ResponseDto> AddSubEntityByGameNetAndEntityAsync(AddSubEntityByGameNetAndEntityDto input)
   {
     try
     {
+      #region Validation
+
+      input.CheckModelState(serviceProvider);
+
+      #endregion
+
       #region Entity Exist
 
       List<TblEntity>? entityExist;
@@ -70,11 +75,18 @@ public class SubEntityApplication(
       return response.GenerateResponse(HttpStatusCode.OK,
         ReturnMessages.SuccessfulAdd("User"));
     }
-    catch (Exception e)
+    catch (ArgumentException ex)
     {
-      serilogger.Error(e);
+      serilogger.Debug(ex.Message);
+      return response.GenerateResponse(HttpStatusCode.BadRequest,
+        ReturnMessages.GeneralPrint(ex.Message));
+    }
+
+    catch (Exception ex)
+    {
+      serilogger.Error(ex);
       return response.GenerateResponse(HttpStatusCode.InternalServerError,
-        ReturnMessages.Faile());
+        ReturnMessages.GeneralPrint("خطایی رخ داد"));
     }
   }
 
@@ -82,5 +94,59 @@ public class SubEntityApplication(
   public async Task<ResponseDto> AddTimeToEntityAsync(AddTimeToEntityDto input)
   {
     return default;
+  }
+
+  public async Task<ResponseDto> AddSubEntityAsync(AddSubEntityDto input)
+  {
+    try
+    {
+      #region Validation
+
+      input.CheckModelState(serviceProvider);
+
+      #endregion
+
+      #region Cheking Entity
+
+      {
+        var cheking = await entityRepository.GetNoTraking.AnyAsync(a => a.Id == input.EntityId.ToGuid());
+        if (cheking is false)
+        {
+          return response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.FailedAdd("موجودیت وجود ندارد"));
+        }
+      }
+
+      #endregion Cheking Entity
+
+      #region Add Entity
+
+      {
+        var result = input.Adapt<TblSubEntity>();
+        if (await repository.ReturnAddAsync(result))
+        {
+          return response.GenerateResponse(HttpStatusCode.OK,
+            ReturnMessages.SuccessfulAdd("زیر موجودیتها"));
+        }
+
+        return response.GenerateResponse(HttpStatusCode.OK,
+          ReturnMessages.FailedAdd("زیر موجودیتها"));
+      }
+
+      #endregion Add Entity
+    }
+    catch (ArgumentException ex)
+    {
+      serilogger.Debug(ex.Message);
+      return response.GenerateResponse(HttpStatusCode.BadRequest,
+        ReturnMessages.GeneralPrint(ex.Message));
+    }
+
+    catch (Exception ex)
+    {
+      serilogger.Error(ex);
+      return response.GenerateResponse(HttpStatusCode.InternalServerError,
+        ReturnMessages.GeneralPrint("خطایی رخ داد"));
+    }
   }
 }

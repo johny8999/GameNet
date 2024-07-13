@@ -5,91 +5,104 @@ using Infra.Data.Repositories.GameNet;
 
 namespace Application.Services;
 
-public class GameNetApplication : IGameNetApplication
+public class GameNetApplication(
+  IGameNetRepository repository,
+  ICityRepository cityepository,
+  IResponse response,
+  ISerilogger serilogger,
+  IServiceProvider serviceProvider)
+  : IGameNetApplication
 {
-  private readonly IGameNetRepository _repository;
-  private readonly ICityRepository _cityepository;
-  private readonly IResponse _response;
-  private readonly ISerilogger _serilogger;
-  private readonly IServiceProvider _serviceProvider;
-
-
-  public GameNetApplication(IGameNetRepository repository, ICityRepository cityepository, IResponse response,
-    ISerilogger serilogger, IServiceProvider serviceProvider)
-  {
-    _repository = repository;
-    _cityepository = cityepository;
-    _response = response;
-    _serilogger = serilogger;
-    _serviceProvider = serviceProvider;
-  }
-
   public async Task<ResponseDto> AddGameNetAsync(AddGameNetDto input)
   {
     try
     {
       #region Validation
 
-      input.CheckModelState(_serviceProvider);
+      input.CheckModelState(serviceProvider);
 
       #endregion
 
-      var checkCity = await _cityepository.GetNoTraking.AnyAsync(a => a.Id == input.CityId.ToGuid());
+      var checkCity = await cityepository.GetNoTraking.AnyAsync(a => a.Id == input.CityId.ToGuid());
       if (checkCity is false)
       {
-        return _response.GenerateResponse(HttpStatusCode.BadRequest,
+        return response.GenerateResponse(HttpStatusCode.BadRequest,
           ReturnMessages.NotExist("شهر"));
       }
 
       var result = input.Adapt<TblGameNet>();
-      await _repository.AddAsync(result);
-      return _response.GenerateResponse(HttpStatusCode.OK,
+      await repository.AddAsync(result);
+      return response.GenerateResponse(HttpStatusCode.OK,
         ReturnMessages.SuccessfulAdd("گیم نت"));
     }
     catch (ArgumentInvalidException ex)
     {
-      _serilogger.Debug(ex);
-      return _response.GenerateResponse(HttpStatusCode.BadRequest,
+      serilogger.Debug(ex);
+      return response.GenerateResponse(HttpStatusCode.BadRequest,
         ReturnMessages.GeneralPrint(ex.Message));
     }
-    catch (Exception e)
+    catch (ArgumentException ex)
     {
-      _serilogger.Error(e);
-      return _response.GenerateResponse(HttpStatusCode.InternalServerError,
-        ReturnMessages.Faile());
+      serilogger.Debug(ex.Message);
+      return response.GenerateResponse(HttpStatusCode.BadRequest,
+        ReturnMessages.GeneralPrint(ex.Message));
+    }
+
+    catch (Exception ex)
+    {
+      serilogger.Error(ex);
+      return response.GenerateResponse(HttpStatusCode.InternalServerError,
+        ReturnMessages.GeneralPrint("خطایی رخ داد"));
     }
   }
 
   public async Task<ResponseDto> GetByIdAsync(GetGameNetByIdDto input)
   {
-    #region Validation
-
-    input.CheckModelState(_serviceProvider);
-
-    #endregion
-
-    #region Get Game Net
-
+    try
     {
-      var gameNet = await _repository
-        .GetNoTraking.SingleOrDefaultAsync(a => a.Id == input.Id.ToGuid());
+      #region Validation
 
-      if (gameNet is null)
+      input.CheckModelState(serviceProvider);
+
+      #endregion
+
+      #region Get Game Net
+
       {
-        return _response.GenerateResponse(HttpStatusCode.BadRequest,
-          ReturnMessages.FailedGet("گیم نت وجود ندارد"));
+        var gameNet = await repository
+          .GetNoTraking.SingleOrDefaultAsync(a => a.Id == input.Id.ToGuid());
+
+        if (gameNet is null)
+        {
+          return response.GenerateResponse(HttpStatusCode.BadRequest,
+            ReturnMessages.FailedGet("گیم نت وجود ندارد"));
+        }
+
+        var result = new GetGameNetByIdResponseDto
+        {
+          Id = gameNet.Id.ToString(),
+          Name = gameNet.Name
+        };
+
+        return response.GenerateResponse(HttpStatusCode.OK,
+          ReturnMessages.SuccessfulGet("گیم نت"), result);
       }
 
-      var result = new GetGameNetByIdResponseDto
-      {
-        Id = gameNet.Id.ToString(),
-        Name = gameNet.Name
-      };
-
-      return _response.GenerateResponse(HttpStatusCode.OK,
-        ReturnMessages.SuccessfulGet("گیم نت"), result);
+      #endregion Get Game Net
+    }
+    catch (ArgumentException ex)
+    {
+      serilogger.Debug(ex.Message);
+      return response.GenerateResponse(HttpStatusCode.BadRequest,
+        ReturnMessages.GeneralPrint(ex.Message));
     }
 
-    #endregion Get Game Net
+    catch (Exception ex)
+    {
+      serilogger.Error(ex);
+      return response.GenerateResponse(HttpStatusCode.InternalServerError,
+        ReturnMessages.GeneralPrint("خطایی رخ داد"));
+    }
+
   }
 }

@@ -1,23 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 using FrameWork.DataAnnotations.String;
 
-namespace Application.Dto.SubEntity;
+namespace Application.Dto.SubEntity.Request;
 
-public sealed class AddSubEntityByGameNetAndEntityDto
+public record AddSubEntityDto
 {
   [Display(Name = "نام ")]
   [RequiredString]
   public string Name { get; set; }
 
-  [Display(Name = "گروه")]
+  [Display(Name = "شناسه موجودیت")]
   [RequiredString]
   [GUID]
   public string EntityId { get; set; }
-
-  [Display(Name = "گیم نت")]
-  [RequiredString]
-  [GUID]
-  public string GameNetId { get; set; }
-
-
 }

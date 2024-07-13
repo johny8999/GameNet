@@ -1,6 +1,5 @@
 using Application.Dto;
 using Application.Dto.Users.Request;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Template.Controllers;
 
