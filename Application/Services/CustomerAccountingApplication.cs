@@ -11,9 +11,7 @@ public class CustomerAccountingApplication(
   IResponse response,
   ISerilogger serilogger,
   IServiceProvider serviceProvider,
-  ISubEntityGameNetRepository subEntityGameNetRepository
-)
-  : ICustomerAccountingApplication
+  ISubEntityGameNetRepository subEntityGameNetRepository) : ICustomerAccountingApplication
 {
   public async Task<ResponseDto> AddCustomerAccountingAsync(AddCustomerAccountingDto input)
   {
